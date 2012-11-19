@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="28" height="18" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="11" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/11.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="12" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/12.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="3" name="13" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/13.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="4" name="14" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/14.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="5" name="15" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/15.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="6" name="16" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/16.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="7" name="21" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/21.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="8" name="22" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/22.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="9" name="23" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/23.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="10" name="24" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/24.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="11" name="25" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/25.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="12" name="26" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/26.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="13" name="31" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/31.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="14" name="32" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/32.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="15" name="33" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/33.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="16" name="34" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/34.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="17" name="35" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/35.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="18" name="36" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/36.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="19" name="41" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/41.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="20" name="42" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/42.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="21" name="43" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/43.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="22" name="44" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/44.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="23" name="45" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/45.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="24" name="46" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/46.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="25" name="52" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/52.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="26" name="53" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/53.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="27" name="54" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/54.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="28" name="55" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/55.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="29" name="56" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/56.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="30" name="61" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/61.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="31" name="62" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/62.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="32" name="64" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/64.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="33" name="65" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/65.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="34" name="66" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/floor/66.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="bl" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/bl.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="36" name="bottom" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/bottom.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="37" name="br" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/br.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="38" name="left" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/left.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="39" name="right" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/right.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="40" name="tl" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/tl.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="41" name="top" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/top.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="42" name="tr" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/tr.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="43" name="left-bottom" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/left-bottom.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="44" name="left-top" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/left-top.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="45" name="right-bottom" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/right-bottom.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="46" name="right-top" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/right-top.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="47" name="bottom locked" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/bottom locked.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="48" name="left locked" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/left locked.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="49" name="right locked" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/right locked.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="50" name="top locked" tilewidth="32" tileheight="32">
+  <image source="../images/tiles/walls/top locked.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="51" name="guard" tilewidth="32" tileheight="32">
+  <image source="../images/guard.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="52" name="engine_piece" tilewidth="32" tileheight="32">
+  <image source="../images/engine_piece.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="53" name="alien" tilewidth="30" tileheight="32">
+  <tileoffset x="2" y="0"/>
+  <image source="../images/alien.png" trans="ffffff" width="30" height="32"/>
+ </tileset>
+ <tileset firstgid="54" name="key" tilewidth="32" tileheight="32">
+  <image source="../images/key.png" trans="ffffff" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="55" name="lock" tilewidth="32" tileheight="32">
+  <image source="../images/lock.png" trans="ffffff" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="56" name="teleporter" tilewidth="96" tileheight="96">
+  <image source="../images/teleporter.png" trans="ffffff" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="57" name="teleporter" tilewidth="96" tileheight="96">
+  <image source="../images/teleporter.png" width="96" height="96"/>
+ </tileset>
+ <layer name="floor" width="28" height="18">
+  <data encoding="base64" compression="zlib">
+   eJyTYmBgYAFiKSrRMgRoatpFjJ30tGsw+k+ORJoa/qOmnaP+G/Uftf0ni4PGpV4aD01Pu0b9Rx5Nif+oaddA+A8A4m8eyQ==
+  </data>
+ </layer>
+ <layer name="walls" width="28" height="18">
+  <data encoding="base64" compression="zlib">
+   eJzTYWBg0KQi1sEjpwfEagz0A+qDzD5VIFbBgmEAmxw+8wjZp07YyRhg1L5R++hpHzCNN5CCtRlw5xtdIuwj1R+0Ck9yyqXhYB8l4anFgKhLYADG16CBfeQAQvYhp19qYHzmgfIDAOHWHDo=
+  </data>
+ </layer>
+ <layer name="locked doors" width="28" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFAw30oXgUjIJRMApGwSigFgAAXQoAXw==
+  </data>
+ </layer>
+ <objectgroup name="objects" width="28" height="18" visible="0"/>
+ <layer name="guards" width="28" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg4YDyAdg9XMBqmo2AU0AaM5q1RMNQAAEAFAJo=
+  </data>
+ </layer>
+ <layer name="teleporter" width="28" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMJyA5UA7YBQMCgAAe6gAOg==
+  </data>
+ </layer>
+ <layer name="engine piece" width="28" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMAroA0wG2gEjCAAAUdAANQ==
+  </data>
+ </layer>
+ <layer name="alien" width="28" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUUAJMB9oBo2AUjIJRgAUAAPwsADY=
+  </data>
+ </layer>
+ <layer name="key" width="28" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjALSgNlAO2AUjIJRQBAAAM1QADc=
+  </data>
+ </layer>
+</map>
