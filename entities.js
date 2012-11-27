@@ -16,7 +16,8 @@ var PlayerEntity = me.ObjectEntity.extend({
         
         // Set default horizontal and vertical speed
         this.setVelocity(5, 5);
-        
+        // disable gravity
+            this.gravity = 0;
     },
     
     // Update player position
@@ -46,8 +47,8 @@ var PlayerEntity = me.ObjectEntity.extend({
         } else {
             this.vel.x = 0;
             this.vel.y = 0;
+            console.log(this.vel.y);
         }
-        
         // Check and update player movement
         this.updateMovement();
         
