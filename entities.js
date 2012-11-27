@@ -5,7 +5,7 @@
 // November 12, 2012
 
 // Debug display
-var debugInfo = document.getElementById("debug");
+var debugInfo = document.getElementById("debugInfo");
 
 // Create player entity
 var PlayerEntity = me.ObjectEntity.extend({

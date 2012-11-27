@@ -44,7 +44,7 @@ var jsApp = {
         }
 
         // initialize the "audio"
-        me.audio.init("mp3,ogg");
+        //me.audio.init("mp3,ogg");
 
         // set all resources to be loaded
         me.loader.onload = this.loaded.bind(this);
