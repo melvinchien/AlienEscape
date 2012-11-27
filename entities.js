@@ -5,7 +5,7 @@
 // November 12, 2012
 
 // Debug display
-var debugInfo = document.getElementById("debugInfo");
+var debug = document.getElementById("debugInfo");
 
 // Create player entity
 var PlayerEntity = me.ObjectEntity.extend({
@@ -21,7 +21,7 @@ var PlayerEntity = me.ObjectEntity.extend({
     
     // Update player position
     update: function() {
-        debug.innerHTML = "Debug <br/>" + this.pos + "<br/>" + Math.round(this.pos.x / 32) + "," + Math.round(this.pos.y / 32);
+        //debug.innerHTML = "Debug <br/>" + this.pos + "<br/>" + Math.round(this.pos.x / 32) + "," + Math.round(this.pos.y / 32);
         if (me.input.isKeyPressed('left')) {
             // Flip sprite on horizontal axis
             
