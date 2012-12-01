@@ -69,10 +69,7 @@ var jsApp = {
         me.entityPool.add("teleporter", TeleporterEntity);
         
         // Add guard 2 entity in entity pool
-        me.entityPool.add("guard1", GuardEntity);
-        
-        // Add guard 1 entity in entity pool
-        me.entityPool.add("guard2", GuardEntity);
+        me.entityPool.add("GuardEntity", GuardEntity);
         
         // Enable the keyboard
         me.input.bindKey(me.input.KEY.A, "left", true);

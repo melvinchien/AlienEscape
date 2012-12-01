@@ -62,6 +62,15 @@ var PlayerEntity = me.ObjectEntity.extend({
         // Check and update player movement
         this.updateMovement();
         
+        var res = me.game.collide(this);
+        
+        if (res) {
+            // if we collide with an enemy
+            if (res.obj.type == me.game.ENEMY_OBJECT) {
+                // Flicker if we touched an enemy
+                this.flicker(20);
+            }
+        }
         
         // Update animation if necessary
         if (this.vel.x != 0 || this.vel.y != 0) {
@@ -78,11 +87,22 @@ var PlayerEntity = me.ObjectEntity.extend({
 
 
 // Create teleporter entity
-var TeleporterEntity = me.ObjectEntity.extend({
+var TeleporterEntity = me.CollectableEntity.extend({
     // Constructor
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
+        
+        
+        
+        // Add animations
+        this.addAnimation('off', [0]);
+        this.addAnimation('on', [0,1,2,3,4,5]);
+        this.setCurrentAnimation('off');
+    },
+    
+    onCollision: function() {
+        this.setCurrentAnimation('on');
     }
     
 });
@@ -92,8 +112,17 @@ var TeleporterEntity = me.ObjectEntity.extend({
 var GuardEntity = me.ObjectEntity.extend({
     // Constructor
     init: function(x, y, settings) {
+        settings.image = "guard_tiles";
+        settings.spritewidth = 32;
+        settings.spriteheight = 32;
         // Call the constructor
         this.parent(x, y, settings);
+        
+        // make it collidable
+        this.collidable = true;
+        // make it a enemy object
+        this.type = me.game.ENEMY_OBJECT;
+ 
         
         // Add animations
         this.addAnimation('idle', [0]);
