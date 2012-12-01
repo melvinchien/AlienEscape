@@ -75,10 +75,10 @@ var jsApp = {
         me.entityPool.add("guard2", GuardEntity);
         
         // Enable the keyboard
-        me.input.bindKey(me.input.KEY.A, "left");
-        me.input.bindKey(me.input.KEY.D, "right");
-        me.input.bindKey(me.input.KEY.S, "down");
-        me.input.bindKey(me.input.KEY.W, "up");
+        me.input.bindKey(me.input.KEY.A, "left", true);
+        me.input.bindKey(me.input.KEY.D, "right", true);
+        me.input.bindKey(me.input.KEY.S, "down", true);
+        me.input.bindKey(me.input.KEY.W, "up", true);
 
         // start the game
         me.state.change(me.state.PLAY);
