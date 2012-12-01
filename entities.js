@@ -17,15 +17,18 @@ var PlayerEntity = me.ObjectEntity.extend({
         // Set default horizontal and vertical speed
         this.setVelocity(5, 5);
         // disable gravity
-            this.gravity = 0;
+        this.gravity = 0;
 
         // Add animations
-        this.addAnimation('idle', [0,1]);
-        this.addAnimation('down', [0,1,2,3,4]);
-        this.addAnimation('up', [5,6,7,8,9]);
-        this.addAnimation('left', [10,11,12,13,14]);
-        this.addAnimation('right', [15,16,17,18,19]);
-        this.setCurrentAnimation('idle');
+        this.addAnimation('idleDown', [0,1,2,1]);
+        this.addAnimation('down', [0,3,4,3]);
+        this.addAnimation('idleUp', [5,6,7,6]);
+        this.addAnimation('up', [5,8,9,8]);
+        this.addAnimation('idleLeft', [10,11,12,11]);
+        this.addAnimation('left', [10,13,14,13]);
+        this.addAnimation('idleRight', [15,16,17,16]);
+        this.addAnimation('right', [15,18,19,18]);
+        this.setCurrentAnimation('idleDown');
     },
     
     // Update player position
@@ -52,7 +55,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Update velocity
             this.vel.y += this.accel.y * me.timer.tick;
         } else {
-            this.setCurrentAnimation('idle');
+            this.setCurrentAnimation('idleDown');
             this.vel.x = 0;
             this.vel.y = 0;
             console.log(this.vel.y);
