@@ -18,6 +18,14 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.setVelocity(5, 5);
         // disable gravity
             this.gravity = 0;
+
+        // Add animations
+        this.addAnimation('idle', [0,1]);
+        this.addAnimation('down', [0,1,2,3,4]);
+        this.addAnimation('up', [5,6,7,8,9]);
+        this.addAnimation('left', [10,11,12,13,14]);
+        this.addAnimation('right', [15,16,17,18,19]);
+        this.setCurrentAnimation('idle');
     },
     
     // Update player position
@@ -25,26 +33,26 @@ var PlayerEntity = me.ObjectEntity.extend({
         //debug.innerHTML = "Debug <br/>" + this.pos + "<br/>" + Math.round(this.pos.x / 32) + "," + Math.round(this.pos.y / 32);
         if (me.input.isKeyPressed('left')) {
             // Flip sprite on horizontal axis
-            
-            this.flipX(true);
+            this.setCurrentAnimation('left');
             // Update velocity
             this.vel.x -= this.accel.x * me.timer.tick;
         } else if (me.input.isKeyPressed('right')) {
             // Unflip sprite
-            this.flipX(false);
+            this.setCurrentAnimation('right');
             // Update velocity
             this.vel.x += this.accel.x * me.timer.tick;
         } else if (me.input.isKeyPressed('up')) {
             // Flip sprite on horizontal axis
-            this.flipY(true);
+            this.setCurrentAnimation('up');
             // Update velocity
             this.vel.y -= this.accel.y * me.timer.tick;
         } else if (me.input.isKeyPressed('down')) {
             // Unflip sprite
-            this.flipY(false);
+            this.setCurrentAnimation('down');
             // Update velocity
             this.vel.y += this.accel.y * me.timer.tick;
         } else {
+            this.setCurrentAnimation('idle');
             this.vel.x = 0;
             this.vel.y = 0;
             console.log(this.vel.y);
@@ -84,6 +92,16 @@ var GuardEntity = me.ObjectEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
+        
+        // Add animations
+        this.addAnimation('idle', [0]);
+        this.addAnimation('down', [0,1,2,3,4]);
+        this.addAnimation('up', [5,6,7,8,9]);
+        this.addAnimation('left', [10,11,12,13,14]);
+        this.addAnimation('right', [15,16,17,18,19]);
+        this.setCurrentAnimation('idle');
     }
+    
+    
     
 });
