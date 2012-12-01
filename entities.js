@@ -29,29 +29,98 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.addAnimation('idleRight', [15,16,17,16]);
         this.addAnimation('right', [15,18,19,18]);
         this.setCurrentAnimation('idleDown');
+        
+        // Add footsteps
+        this.nextFootVar = "la";  //default footstep
+        
     },
     
     // Update player position
     update: function() {
         //debug.innerHTML = "Debug <br/>" + this.pos + "<br/>" + Math.round(this.pos.x / 32) + "," + Math.round(this.pos.y / 32);
+       
         if (me.input.isKeyPressed('left')) {
             // Flip sprite on horizontal axis
             this.setCurrentAnimation('left');
+
+            // Generates a footstep sound
+            var footRand = 1 + Math.floor(Math.random() * 9);
+            var myFootSound = "FOOT_" + this.nextFootVar + footRand;
+            me.audio.play(myFootSound);
+            // Pick a new footstep variation for next time!
+            if (this.nextFootVar == "la") {
+            	this.nextFootVar = "rb";
+            } else if (this.nextFootVar == "rb") {
+            	this.nextFootVar = "lc";
+            } else if (this.nextFootVar == "lc") {
+            	this.nextFootVar = "rd";
+			} else {
+            	this.nextFootVar = "la";			
+			}
+
             // Update velocity
             this.vel.x -= this.accel.x * me.timer.tick;
         } else if (me.input.isKeyPressed('right')) {
             // Unflip sprite
             this.setCurrentAnimation('right');
+
+            // Generates a footstep sound
+            var footRand = 1 + Math.floor(Math.random() * 9);
+            var myFootSound = "FOOT_" + this.nextFootVar + footRand;
+            me.audio.play(myFootSound);
+            // Pick a new footstep variation for next time!
+            if (this.nextFootVar == "la") {
+            	this.nextFootVar = "rb";
+            } else if (this.nextFootVar == "rb") {
+            	this.nextFootVar = "lc";
+            } else if (this.nextFootVar == "lc") {
+            	this.nextFootVar = "rd";
+			} else {
+            	this.nextFootVar = "la";			
+			}
+
             // Update velocity
             this.vel.x += this.accel.x * me.timer.tick;
         } else if (me.input.isKeyPressed('up')) {
             // Flip sprite on horizontal axis
             this.setCurrentAnimation('up');
+
+            // Generates a footstep sound
+            var footRand = 1 + Math.floor(Math.random() * 9);
+            var myFootSound = "FOOT_" + this.nextFootVar + footRand;
+            me.audio.play(myFootSound);
+            // Pick a new footstep variation for next time!
+            if (this.nextFootVar == "la") {
+            	this.nextFootVar = "rb";
+            } else if (this.nextFootVar == "rb") {
+            	this.nextFootVar = "lc";
+            } else if (this.nextFootVar == "lc") {
+            	this.nextFootVar = "rd";
+			} else {
+            	this.nextFootVar = "la";			
+			}
+
             // Update velocity
             this.vel.y -= this.accel.y * me.timer.tick;
         } else if (me.input.isKeyPressed('down')) {
             // Unflip sprite
             this.setCurrentAnimation('down');
+
+            // Generates a footstep sound
+            var footRand = 1 + Math.floor(Math.random() * 9);
+            var myFootSound = "FOOT_" + this.nextFootVar + footRand;
+            me.audio.play(myFootSound);
+            // Pick a new footstep variation for next time!
+            if (this.nextFootVar == "la") {
+            	this.nextFootVar = "rb";
+            } else if (this.nextFootVar == "rb") {
+            	this.nextFootVar = "lc";
+            } else if (this.nextFootVar == "lc") {
+            	this.nextFootVar = "rd";
+			} else {
+            	this.nextFootVar = "la";			
+			}
+
             // Update velocity
             this.vel.y += this.accel.y * me.timer.tick;
         } else {
