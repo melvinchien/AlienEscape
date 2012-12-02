@@ -13,7 +13,7 @@ var PlayerEntity = me.ObjectEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
-        
+
         // Set default horizontal and vertical speed
         this.setVelocity(32, 32);
         // disable gravity
@@ -29,17 +29,19 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.addAnimation('idleRight', [15,16,17,16]);
         this.addAnimation('right', [15,18,19,18]);
         this.setCurrentAnimation('idleDown');
-        
+
         // Add footsteps
         this.nextFootVar = "la";  //default footstep
-        
+
+
     },
-    
+
     // Update player position
     update: function() {
         //debug.innerHTML = "Debug <br/>" + this.pos + "<br/>" + Math.round(this.pos.x / 32) + "," + Math.round(this.pos.y / 32);
-       
+        var moved = false;
         if (me.input.isKeyPressed('left')) {
+            moved = true;
             // Flip sprite on horizontal axis
             this.setCurrentAnimation('left');
 
@@ -49,18 +51,19 @@ var PlayerEntity = me.ObjectEntity.extend({
             me.audio.play(myFootSound);
             // Pick a new footstep variation for next time!
             if (this.nextFootVar == "la") {
-            	this.nextFootVar = "rb";
+                this.nextFootVar = "rb";
             } else if (this.nextFootVar == "rb") {
-            	this.nextFootVar = "lc";
+                this.nextFootVar = "lc";
             } else if (this.nextFootVar == "lc") {
-            	this.nextFootVar = "rd";
-			} else {
-            	this.nextFootVar = "la";			
-			}
+                this.nextFootVar = "rd";
+            } else {
+                this.nextFootVar = "la";
+            }
 
             // Update velocity
             this.vel.x -= this.accel.x * me.timer.tick;
         } else if (me.input.isKeyPressed('right')) {
+            moved = true;
             // Unflip sprite
             this.setCurrentAnimation('right');
 
@@ -70,18 +73,19 @@ var PlayerEntity = me.ObjectEntity.extend({
             me.audio.play(myFootSound);
             // Pick a new footstep variation for next time!
             if (this.nextFootVar == "la") {
-            	this.nextFootVar = "rb";
+                this.nextFootVar = "rb";
             } else if (this.nextFootVar == "rb") {
-            	this.nextFootVar = "lc";
+                this.nextFootVar = "lc";
             } else if (this.nextFootVar == "lc") {
-            	this.nextFootVar = "rd";
-			} else {
-            	this.nextFootVar = "la";			
-			}
+                this.nextFootVar = "rd";
+            } else {
+                this.nextFootVar = "la";
+            }
 
             // Update velocity
             this.vel.x += this.accel.x * me.timer.tick;
         } else if (me.input.isKeyPressed('up')) {
+            moved = true;
             // Flip sprite on horizontal axis
             this.setCurrentAnimation('up');
 
@@ -91,18 +95,19 @@ var PlayerEntity = me.ObjectEntity.extend({
             me.audio.play(myFootSound);
             // Pick a new footstep variation for next time!
             if (this.nextFootVar == "la") {
-            	this.nextFootVar = "rb";
+                this.nextFootVar = "rb";
             } else if (this.nextFootVar == "rb") {
-            	this.nextFootVar = "lc";
+                this.nextFootVar = "lc";
             } else if (this.nextFootVar == "lc") {
-            	this.nextFootVar = "rd";
-			} else {
-            	this.nextFootVar = "la";			
-			}
+                this.nextFootVar = "rd";
+            } else {
+                this.nextFootVar = "la";
+            }
 
             // Update velocity
             this.vel.y -= this.accel.y * me.timer.tick;
         } else if (me.input.isKeyPressed('down')) {
+            moved = true;
             // Unflip sprite
             this.setCurrentAnimation('down');
 
@@ -112,14 +117,14 @@ var PlayerEntity = me.ObjectEntity.extend({
             me.audio.play(myFootSound);
             // Pick a new footstep variation for next time!
             if (this.nextFootVar == "la") {
-            	this.nextFootVar = "rb";
+                this.nextFootVar = "rb";
             } else if (this.nextFootVar == "rb") {
-            	this.nextFootVar = "lc";
+                this.nextFootVar = "lc";
             } else if (this.nextFootVar == "lc") {
-            	this.nextFootVar = "rd";
-			} else {
-            	this.nextFootVar = "la";			
-			}
+                this.nextFootVar = "rd";
+            } else {
+                this.nextFootVar = "la";
+            }
 
             // Update velocity
             this.vel.y += this.accel.y * me.timer.tick;
@@ -130,25 +135,27 @@ var PlayerEntity = me.ObjectEntity.extend({
         }
         // Check and update player movement
         this.updateMovement();
-        
+
         var res = me.game.collide(this);
-        
+
         if (res) {
             // if we collide with an enemy
             if (res.obj.type == me.game.ENEMY_OBJECT) {
                 // Flicker if we touched an enemy
-                this.flicker(5);
+                this.flicker(1);
             }
         }
-        
+
+        if (moved)
+            me.game.HUD.updateItemValue("turns", -1);
         // Update animation if necessary
         if (this.vel.x != 0 || this.vel.y != 0) {
             // Update object animation
             this.parent(this);
             return true;
         }
-        
-        
+
+
         // Otherwise inform engine we did not perform any update
         return false;
     }
@@ -161,19 +168,18 @@ var TeleporterEntity = me.CollectableEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
-        
-        
-        
+
+
         // Add animations
         this.addAnimation('off', [0]);
         this.addAnimation('on', [0,1,2,3,4,5]);
         this.setCurrentAnimation('off');
     },
-    
+
     onCollision: function() {
         this.setCurrentAnimation('on', 'off');
     }
-    
+
 });
 
 
@@ -186,13 +192,12 @@ var GuardEntity = me.ObjectEntity.extend({
         settings.spriteheight = 32;
         // Call the constructor
         this.parent(x, y, settings);
-        
+
         // make it collidable
         this.collidable = true;
         // make it a enemy object
         this.type = me.game.ENEMY_OBJECT;
- 
-        
+
         // Add animations
         this.addAnimation('idle', [0]);
         this.addAnimation('down', [0,1,2,3,4]);
@@ -201,7 +206,6 @@ var GuardEntity = me.ObjectEntity.extend({
         this.addAnimation('right', [15,16,17,18,19]);
         this.setCurrentAnimation('idle');
     }
-    
-    
-    
+
+
 });
