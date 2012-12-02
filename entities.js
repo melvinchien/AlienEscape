@@ -137,7 +137,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // if we collide with an enemy
             if (res.obj.type == me.game.ENEMY_OBJECT) {
                 // Flicker if we touched an enemy
-                this.flicker(20);
+                this.flicker(5);
             }
         }
         
@@ -171,7 +171,7 @@ var TeleporterEntity = me.CollectableEntity.extend({
     },
     
     onCollision: function() {
-        this.setCurrentAnimation('on');
+        this.setCurrentAnimation('on', 'off');
     }
     
 });
