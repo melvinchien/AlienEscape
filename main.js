@@ -245,9 +245,7 @@ var g_resources = [
     type: "audio",
     src: "sounds/",
     channel : 1
-}
-
-];
+}];
 
 
 var jsApp = {
@@ -256,7 +254,7 @@ var jsApp = {
     onload: function() {
 
         // Initialize the video
-        if (!me.video.init('jsapp', 1024, 768, false, 1.0)) {
+        if (!me.video.init("jsapp", 1024, 768, false, 1.0)) {
             alert("Sorry but your browser does not support html 5 canvas.");
             return;
         }
@@ -302,7 +300,17 @@ var jsApp = {
         me.input.bindKey(me.input.KEY.DOWN, "down", true);
         me.input.bindKey(me.input.KEY.W, "up", true);
         me.input.bindKey(me.input.KEY.UP, "up", true);
-        
+        me.input.bindKey(me.input.KEY.M, "music", true);
+
+        // Store statistics and values (Default value is 0)
+        me.gamestat.add("music");
+        me.gamestat.add("staminaF1", 101);
+        me.gamestat.add("staminaF2", 101);
+        me.gamestat.add("staminaBonus", 15);
+        me.gamestat.add("engineCollected");
+        me.gamestat.add("moved");
+        me.gamestat.add("playerX");
+        me.gamestat.add("playerY");
 
         // start the game
         me.state.change(me.state.MENU);
@@ -321,14 +329,12 @@ var PlayScreen = me.ScreenObject.extend( {
 
         // add a new HUD item
         me.game.HUD.addItem("stamina", new TurnObject(992, 0));
-        me.game.HUD.setItemValue("stamina", 100);
+        me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF1"));
 
         // make sure everyhting is in the right order
         me.game.sort();
 
     },
-
-
 
     // Action to perform when game is finished (state change)
     onDestroyEvent: function() {
@@ -339,6 +345,7 @@ var PlayScreen = me.ScreenObject.extend( {
 });
 
 var TitleScreen = me.ScreenObject.extend( {
+
 
     init: function() {
         this.parent(true);
@@ -352,8 +359,6 @@ var TitleScreen = me.ScreenObject.extend( {
             // font to display the menu items
             this.font = new me.BitmapFont("font_scifly_green", 32);
             this.font.set("center");
-
-
         }
 
         // enable the keyboard
@@ -362,13 +367,24 @@ var TitleScreen = me.ScreenObject.extend( {
 
         // play something
         me.audio.playTrack("music-temp");
+        me.gamestat.setValue("music", 1);
     },
 
 
     update: function() {
         // enter pressed ?
-        if (me.input.isKeyPressed('enter')) {
+        if (me.input.isKeyPressed("enter")) {
             me.state.change(me.state.PLAY);
+        }
+
+        if (me.input.isKeyPressed("music")) {
+            if (me.gamestat.getItemValue("music") == 1) {
+                me.audio.stopTrack();
+                me.gamestat.setValue("music", 0);
+            } else {
+                me.audio.playTrack("music-temp");
+                me.gamestat.setValue("music", 1);
+            }
         }
         return true;
     },
@@ -376,12 +392,17 @@ var TitleScreen = me.ScreenObject.extend( {
 
     draw: function(context) {
         context.drawImage(this.title, 0, 0);
+        var x = me.video.getWidth() / 2;
+        var y = me.video.getHeight() / 2;
+        this.font.draw(context, "PLAY - ENTER", x, y);
+        this.font.draw(context, "MOVE - ARROW KEYS / WASD", x, y + 64);
+        this.font.draw(context, "M - TOGGLE MUSIC", x, y + 128);
 
-        this.font.draw(context, "PRESS ENTER TO PLAY", 512, 450);
     },
 
     onDestroyEvent: function() {
         me.input.unbindKey(me.input.KEY.ENTER);
+        me.input.unbindMouse(me.input.mouse.LEFT);
     }
 });
 
@@ -389,7 +410,7 @@ var TitleScreen = me.ScreenObject.extend( {
 var TurnObject = me.HUD_Item.extend({
     init: function(x, y) {
         this.parent(x, y);
-        this.font = new me.BitmapFont("font_scifly_green", 32);
+        this.font = new me.BitmapFont("font_scifly_grey", 32);
     },
 
 

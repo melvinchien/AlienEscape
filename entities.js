@@ -4,8 +4,6 @@
 // Version 1.0
 // November 12, 2012
 
-// Debug display
-var debug = document.getElementById("debugInfo");
 
 // Create player entity
 var PlayerEntity = me.ObjectEntity.extend({
@@ -32,18 +30,12 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         // Add footsteps
         this.nextFootVar = "la";  //default footstep
-
-
     },
 
     // Update player position
     update: function() {
-        //debug.innerHTML = "Debug <br/>" + this.pos + "<br/>" + Math.round(this.pos.x / 32) + "," + Math.round(this.pos.y / 32);
-        var moved = false;
         if (me.input.isKeyPressed("left")) {
-            moved = true;
-            // Flip sprite on horizontal axis
-            this.setCurrentAnimation("left");
+            this.setCurrentAnimation("left", "idleLeft");
 
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
@@ -61,11 +53,9 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
 
             // Update velocity
-            this.vel.x -= this.accel.x * me.timer.tick;
+            this.vel.x -= 32;
         } else if (me.input.isKeyPressed("right")) {
-            moved = true;
-            // Unflip sprite
-            this.setCurrentAnimation("right");
+            this.setCurrentAnimation("right", "idleRight");
 
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
@@ -83,10 +73,8 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
 
             // Update velocity
-            this.vel.x += this.accel.x * me.timer.tick;
+            this.vel.x += 32;
         } else if (me.input.isKeyPressed("up")) {
-            moved = true;
-            // Flip sprite on horizontal axis
             this.setCurrentAnimation("up", "idleUp");
 
             // Generates a footstep sound
@@ -105,11 +93,9 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
 
             // Update velocity
-            this.vel.y -= this.accel.y * me.timer.tick;
+            this.vel.y -= 32;
         } else if (me.input.isKeyPressed("down")) {
-            moved = true;
-            // Unflip sprite
-            this.setCurrentAnimation("down");
+            this.setCurrentAnimation("down", "idleDown");
 
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
@@ -127,17 +113,22 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
 
             // Update velocity
-            this.vel.y += this.accel.y * me.timer.tick;
+            this.vel.y += 32;
         } else {
-            //this.setCurrentAnimation("idleDown");
             this.vel.x = 0;
             this.vel.y = 0;
         }
-        // Check and update player movement
+
+        // Update player movement
         this.updateMovement();
 
-        var res = me.game.collide(this);
+        // Check for movement
+        var oldX = me.gamestat.getItemValue("playerX");
+        var oldY = me.gamestat.getItemValue("playerY");
+        var newX = Math.round(this.pos.x / 32);
+        var newY = Math.round(this.pos.y / 32);
 
+        var res = me.game.collide(this);
         if (res) {
             // if we collide with an enemy
             if (res.obj.type == me.game.ENEMY_OBJECT) {
@@ -146,14 +137,20 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
         }
 
-        if (moved) {
+        if (oldX == newX && oldY == newY) {
+            me.gamestat.reset("moved");
+        } else {
+            me.gamestat.setValue("playerX", newX);
+            me.gamestat.setValue("playerY", newY);
+            me.gamestat.setValue("moved", 1);
+
+            // Update stamina
             me.game.HUD.updateItemValue("stamina", -1);
             // Update animation if necessary
             // Update object animation
             this.parent(this);
             return true;
         }
-
 
         // Otherwise inform engine we did not perform any update
         return false;
@@ -162,12 +159,11 @@ var PlayerEntity = me.ObjectEntity.extend({
 
 
 // Create teleporter entity
-var TeleporterEntity = me.CollectableEntity.extend({
+var TeleporterEntity = me.ObjectEntity.extend({
     // Constructor
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
-
 
         // Add animations
         this.addAnimation("off", [0]);
@@ -175,10 +171,13 @@ var TeleporterEntity = me.CollectableEntity.extend({
         this.setCurrentAnimation("off");
     },
 
-    onCollision: function() {
-        this.setCurrentAnimation("on", "off");
+    update: function() {
+        if (me.gamestat.getItemValue("engineCollected") == 1) {
+            this.setCurrentAnimation("on");
+            this.parent(this);
+            return true;
+        }
     }
-
 });
 
 
@@ -205,8 +204,6 @@ var GuardEntity = me.ObjectEntity.extend({
         this.addAnimation("right", [15,16,17,18,19]);
         this.setCurrentAnimation("idle");
     }
-
-
 });
 
 
@@ -216,15 +213,13 @@ var EnginePieceEntity = me.CollectableEntity.extend({
         // call the parent constructor
         this.parent(x, y, settings);
     },
- 
+
     onCollision: function() {
-        me.game.HUD.updateItemValue("stamina", 15);
+        me.game.HUD.updateItemValue("stamina", me.gamestat.getItemValue("staminaBonus"));
         this.collidable = false;
         me.game.remove(this);
-        var teleporters = me.game.getEntityByName("teleporter");
-        teleporters[0].setCurrentAnimation("on");
+        me.gamestat.setValue("engineCollected", 1);
     }
- 
 });
 
 
@@ -240,5 +235,4 @@ var KeyEntity = me.CollectableEntity.extend({
     onCollision: function() {
     // do something when collected
     }
- 
 });
