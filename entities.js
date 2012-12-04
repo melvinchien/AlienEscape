@@ -20,15 +20,15 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.gravity = 0;
 
         // Add animations
-        this.addAnimation('idleDown', [0,1,2,1]);
-        this.addAnimation('down', [0,3,4,3]);
-        this.addAnimation('idleUp', [5,6,7,6]);
-        this.addAnimation('up', [5,8,9,8]);
-        this.addAnimation('idleLeft', [10,11,12,11]);
-        this.addAnimation('left', [10,13,14,13]);
-        this.addAnimation('idleRight', [15,16,17,16]);
-        this.addAnimation('right', [15,18,19,18]);
-        this.setCurrentAnimation('idleDown');
+        this.addAnimation("idleDown", [0,1,2,1]);
+        this.addAnimation("down", [0,3,4,3]);
+        this.addAnimation("idleUp", [5,6,7,6]);
+        this.addAnimation("up", [5,8,9,8]);
+        this.addAnimation("idleLeft", [10,11,12,11]);
+        this.addAnimation("left", [10,13,14,13]);
+        this.addAnimation("idleRight", [15,16,17,16]);
+        this.addAnimation("right", [15,18,19,18]);
+        this.setCurrentAnimation("idleDown");
 
         // Add footsteps
         this.nextFootVar = "la";  //default footstep
@@ -40,10 +40,10 @@ var PlayerEntity = me.ObjectEntity.extend({
     update: function() {
         //debug.innerHTML = "Debug <br/>" + this.pos + "<br/>" + Math.round(this.pos.x / 32) + "," + Math.round(this.pos.y / 32);
         var moved = false;
-        if (me.input.isKeyPressed('left')) {
+        if (me.input.isKeyPressed("left")) {
             moved = true;
             // Flip sprite on horizontal axis
-            this.setCurrentAnimation('left');
+            this.setCurrentAnimation("left");
 
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
@@ -62,10 +62,10 @@ var PlayerEntity = me.ObjectEntity.extend({
 
             // Update velocity
             this.vel.x -= this.accel.x * me.timer.tick;
-        } else if (me.input.isKeyPressed('right')) {
+        } else if (me.input.isKeyPressed("right")) {
             moved = true;
             // Unflip sprite
-            this.setCurrentAnimation('right');
+            this.setCurrentAnimation("right");
 
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
@@ -84,10 +84,10 @@ var PlayerEntity = me.ObjectEntity.extend({
 
             // Update velocity
             this.vel.x += this.accel.x * me.timer.tick;
-        } else if (me.input.isKeyPressed('up')) {
+        } else if (me.input.isKeyPressed("up")) {
             moved = true;
             // Flip sprite on horizontal axis
-            this.setCurrentAnimation('up');
+            this.setCurrentAnimation("up", "idleUp");
 
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
@@ -106,10 +106,10 @@ var PlayerEntity = me.ObjectEntity.extend({
 
             // Update velocity
             this.vel.y -= this.accel.y * me.timer.tick;
-        } else if (me.input.isKeyPressed('down')) {
+        } else if (me.input.isKeyPressed("down")) {
             moved = true;
             // Unflip sprite
-            this.setCurrentAnimation('down');
+            this.setCurrentAnimation("down");
 
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
@@ -129,7 +129,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Update velocity
             this.vel.y += this.accel.y * me.timer.tick;
         } else {
-            this.setCurrentAnimation('idleDown');
+            //this.setCurrentAnimation("idleDown");
             this.vel.x = 0;
             this.vel.y = 0;
         }
@@ -146,10 +146,9 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
         }
 
-        if (moved)
+        if (moved) {
             me.game.HUD.updateItemValue("turns", -1);
         // Update animation if necessary
-        if (this.vel.x != 0 || this.vel.y != 0) {
             // Update object animation
             this.parent(this);
             return true;
@@ -171,13 +170,13 @@ var TeleporterEntity = me.CollectableEntity.extend({
 
 
         // Add animations
-        this.addAnimation('off', [0]);
-        this.addAnimation('on', [0,1,2,3,4,5]);
-        this.setCurrentAnimation('off');
+        this.addAnimation("off", [0]);
+        this.addAnimation("on", [0,1,2,3,4,5]);
+        this.setCurrentAnimation("off");
     },
 
     onCollision: function() {
-        this.setCurrentAnimation('on', 'off');
+        this.setCurrentAnimation("on", "off");
     }
 
 });
@@ -199,12 +198,12 @@ var GuardEntity = me.ObjectEntity.extend({
         this.type = me.game.ENEMY_OBJECT;
 
         // Add animations
-        this.addAnimation('idle', [0]);
-        this.addAnimation('down', [0,1,2,3,4]);
-        this.addAnimation('up', [5,6,7,8,9]);
-        this.addAnimation('left', [10,11,12,13,14]);
-        this.addAnimation('right', [15,16,17,18,19]);
-        this.setCurrentAnimation('idle');
+        this.addAnimation("idle", [0]);
+        this.addAnimation("down", [0,1,2,3,4]);
+        this.addAnimation("up", [5,6,7,8,9]);
+        this.addAnimation("left", [10,11,12,13,14]);
+        this.addAnimation("right", [15,16,17,18,19]);
+        this.setCurrentAnimation("idle");
     }
 
 

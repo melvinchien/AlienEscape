@@ -19,6 +19,14 @@ var g_resources = [
     type: "image",
     src: "images/font_orbitron.png"
 }, {
+    name: "font_scifly_grey",
+    type: "image",
+    src: "images/font_scifly_grey.png"
+}, {
+    name: "font_scifly_green",
+    type: "image",
+    src: "images/font_scifly_green.png"
+}, {
     name: "facility1_level_tiles",
     type: "image",
     src: "images/facility1_level_tiles.png"
@@ -330,7 +338,7 @@ var TitleScreen = me.ScreenObject.extend( {
         if (this.title == null) {
             this.title = me.loader.getImage("menu_main");
             // font to display the menu items
-            this.font = new me.BitmapFont("font_orbitron", 32);
+            this.font = new me.BitmapFont("font_scifly_green", 32);
             this.font.set("center");
 
 
@@ -368,7 +376,7 @@ var TitleScreen = me.ScreenObject.extend( {
 var TurnObject = me.HUD_Item.extend({
     init: function(x, y) {
         this.parent(x, y);
-        this.font = new me.BitmapFont("font_orbitron", 32);
+        this.font = new me.BitmapFont("font_scifly_green", 32);
     },
 
 
