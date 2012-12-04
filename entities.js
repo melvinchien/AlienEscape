@@ -147,8 +147,8 @@ var PlayerEntity = me.ObjectEntity.extend({
         }
 
         if (moved) {
-            me.game.HUD.updateItemValue("turns", -1);
-        // Update animation if necessary
+            me.game.HUD.updateItemValue("stamina", -1);
+            // Update animation if necessary
             // Update object animation
             this.parent(this);
             return true;
@@ -207,4 +207,38 @@ var GuardEntity = me.ObjectEntity.extend({
     }
 
 
+});
+
+
+// Create engine piece entity
+var EnginePieceEntity = me.CollectableEntity.extend({
+    init: function(x, y, settings) {
+        // call the parent constructor
+        this.parent(x, y, settings);
+    },
+ 
+    onCollision: function() {
+        me.game.HUD.updateItemValue("stamina", 15);
+        this.collidable = false;
+        me.game.remove(this);
+        var teleporters = me.game.getEntityByName("teleporter");
+        teleporters[0].setCurrentAnimation("on");
+    }
+ 
+});
+
+
+// Create key  entity
+var KeyEntity = me.CollectableEntity.extend({
+    // extending the init function is not mandatory
+    // unless you need to add some extra initialization
+    init: function(x, y, settings) {
+        // call the parent constructor
+        this.parent(x, y, settings);
+    },
+
+    onCollision: function() {
+    // do something when collected
+    }
+ 
 });

@@ -51,6 +51,16 @@ var g_resources = [
     src: "images/guard_tiles.png"
 
 }, {
+    name: "engine_piece",
+    type: "image",
+    src: "images/engine_piece.png"
+
+}, {
+    name: "key",
+    type: "image",
+    src: "images/key.png"
+
+}, {
     name: "music-temp",
     type: "audio",
     src: "sounds/",
@@ -276,20 +286,23 @@ var jsApp = {
         // set a global fading transition for the screen
         me.state.transition("fade", "#FFFFFF", 250);
 
-        // Add player entity in entity pool
+        // Add entities in entity pool
         me.entityPool.add("player", PlayerEntity);
-
-        // Add teleporter entity in entity pool
         me.entityPool.add("teleporter", TeleporterEntity);
-
-        // Add guard 2 entity in entity pool
         me.entityPool.add("GuardEntity", GuardEntity);
+        me.entityPool.add("KeyEntity", KeyEntity);
+        me.entityPool.add("enginePiece", EnginePieceEntity);
 
         // Enable the keyboard
         me.input.bindKey(me.input.KEY.A, "left", true);
+        me.input.bindKey(me.input.KEY.LEFT, "left", true);
         me.input.bindKey(me.input.KEY.D, "right", true);
+        me.input.bindKey(me.input.KEY.RIGHT, "right", true);
         me.input.bindKey(me.input.KEY.S, "down", true);
+        me.input.bindKey(me.input.KEY.DOWN, "down", true);
         me.input.bindKey(me.input.KEY.W, "up", true);
+        me.input.bindKey(me.input.KEY.UP, "up", true);
+        
 
         // start the game
         me.state.change(me.state.MENU);
@@ -302,14 +315,13 @@ var PlayScreen = me.ScreenObject.extend( {
 
     onResetEvent: function() {
         me.levelDirector.loadLevel("facility1");
-        //me.audio.playTrack("music-temp");
 
         // add a default HUD to the game mngr
         me.game.addHUD(0, 736, 1024, 32);
 
         // add a new HUD item
-        me.game.HUD.addItem("turns", new TurnObject(992, 0));
-        me.game.HUD.setItemValue("turns", 70);
+        me.game.HUD.addItem("stamina", new TurnObject(992, 0));
+        me.game.HUD.setItemValue("stamina", 100);
 
         // make sure everyhting is in the right order
         me.game.sort();
@@ -346,6 +358,7 @@ var TitleScreen = me.ScreenObject.extend( {
 
         // enable the keyboard
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
+        me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
         // play something
         me.audio.playTrack("music-temp");
