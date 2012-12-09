@@ -78,14 +78,18 @@
   </object>
  </objectgroup>
  <objectgroup color="#0080ff" name="AudioZones" width="32" height="24">
-  <object name="HomeKeyDoor" x="833" y="479" width="61" height="32"/>
-  <object name="KeyGuardDoor" x="738" y="96" width="31" height="68"/>
-  <object name="GuardKeyDoor" x="671" y="93" width="31" height="68"/>
-  <object name="KeyHomeDoor" x="833" y="417" width="61" height="32"/>
-  <object name="GuardPuzzleDoor" x="481" y="192" width="61" height="32"/>
-  <object name="PuzzleGuardDoor" x="480" y="255" width="61" height="32"/>
-  <object name="TeleportGuardDoor" x="257" y="575" width="61" height="32"/>
-  <object name="GuardTeleportDoor" x="257" y="641" width="61" height="32"/>
+  <object name="HomeKeyDoor" x="838" y="487" width="52" height="18"/>
+  <object name="KeyGuardDoor" x="740" y="108" width="23" height="46"/>
+  <object name="GuardKeyDoor" x="675" y="103" width="25" height="52"/>
+  <object name="KeyHomeDoor" x="838" y="423" width="52" height="20"/>
+  <object name="GuardPuzzleDoor" x="487" y="195" width="51" height="25"/>
+  <object name="PuzzleGuardDoor" x="483" y="260" width="56" height="23"/>
+  <object name="TeleportGuardDoor" x="261" y="579" width="52" height="24"/>
+  <object name="GuardTeleportDoor" x="261" y="645" width="55" height="21"/>
+  <object name="EnableKeyHome" x="838" y="453" width="51" height="20"/>
+  <object name="EnableGuardPuzzle" x="486" y="228" width="51" height="20"/>
+  <object name="EnableTeleportGuard" x="261" y="612" width="51" height="20"/>
+  <object name="EnableKeyGuard" x="706" y="104" width="25" height="51"/>
  </objectgroup>
  <layer name="collision" width="32" height="24" visible="0">
   <data encoding="base64">

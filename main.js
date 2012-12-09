@@ -71,6 +71,11 @@ var g_resources = [
     src: "sounds/",
     channel : 1
 },{
+    name: "roombg-teleporter",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+},{
     name: "foot_la1",
     type: "audio",
     src: "sounds/",
@@ -295,6 +300,20 @@ var jsApp = {
         me.entityPool.add("GuardEntity", GuardEntity);
         me.entityPool.add("KeyEntity", KeyEntity);
         me.entityPool.add("enginePiece", EnginePieceEntity);
+        me.entityPool.add("KeyHomeDoor", KeyHomeDoor);
+        me.entityPool.add("HomeKeyDoor", HomeKeyDoor);
+        me.entityPool.add("KeyGuardDoor", KeyGuardDoor);
+        me.entityPool.add("GuardKeyDoor", GuardKeyDoor);
+        me.entityPool.add("GuardPuzzleDoor", GuardPuzzleDoor);
+        me.entityPool.add("PuzzleGuardDoor", PuzzleGuardDoor);
+        me.entityPool.add("GuardTeleportDoor", GuardTeleportDoor);
+        me.entityPool.add("TeleportGuardDoor", TeleportGuardDoor);
+        me.entityPool.add("EnableKeyHome", EnableKeyHome);
+        me.entityPool.add("EnableGuardPuzzle", EnableGuardPuzzle);
+        me.entityPool.add("EnableKeyGuard", EnableKeyGuard);
+        me.entityPool.add("EnableTeleportGuard", EnableTeleportGuard);
+
+
 
         // Enable the keyboard
         me.input.bindKey(me.input.KEY.A, "left", true);
@@ -372,7 +391,7 @@ var TitleScreen = me.ScreenObject.extend( {
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
         // play something
-        me.audio.playTrack("music-temp");
+        me.audio.playTrack("music-temp",0.5);
         me.gamestat.setValue("music", 1);
     },
 

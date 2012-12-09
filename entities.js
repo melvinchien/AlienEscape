@@ -242,3 +242,317 @@ var KeyEntity = me.CollectableEntity.extend({
     // do something when collected
     }
 });
+
+/* AUDIO ZONES */
+
+// Create EnableKeyHome entity
+var EnableKeyHome = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+        this.collidable = true;
+    },
+
+    onCollision: function() {
+    console.log('keyhome');
+    	var HomeKeyDoorZone = me.game.getEntityByName('HomeKeyDoor');
+    	var KeyHomeDoorZone = me.game.getEntityByName('KeyHomeDoor');
+    	var KeyGuardDoorZone = me.game.getEntityByName('KeyGuardDoor');
+    	var GuardKeyDoorZone = me.game.getEntityByName('GuardKeyDoor');
+    	var GuardPuzzleDoorZone = me.game.getEntityByName('GuardPuzzleDoor');
+    	var PuzzleGuardDoorZone = me.game.getEntityByName('PuzzleGuardDoor');
+    	var GuardTeleportDoorZone = me.game.getEntityByName('GuardTeleportDoor');
+    	var TeleportGuradDoorZone = me.game.getEntityByName('TeleportGuardDoor');
+    	
+    	HomeKeyDoorZone.collidable = true;
+    	KeyHomeDoorZone.collidable = true;
+    	KeyGuardDoorZone.collidable = true;
+    	GuardKeyDoorZone.collidable = true;
+    	GuardPuzzleDoorZone.collidable = true;
+    	PuzzleGuardDoorZone.collidable = true;
+    	GuardTeleportDoorZone.collidable = true;
+    	TeleportGuradDoorZone.collidable = true;
+    	console.log(KeyHomeDoorZone.collidable);
+    }
+});
+
+// Create EnableGuardPuzzle entity
+var EnableGuardPuzzle = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+        this.collidable = true;
+    },
+
+    onCollision: function() {
+    	var HomeKeyDoorZone = me.game.getEntityByName('HomeKeyDoor');
+    	var KeyHomeDoorZone = me.game.getEntityByName('KeyHomeDoor');
+    	var KeyGuardDoorZone = me.game.getEntityByName('KeyGuardDoor');
+    	var GuardKeyDoorZone = me.game.getEntityByName('GuardKeyDoor');
+    	var GuardPuzzleDoorZone = me.game.getEntityByName('GuardPuzzleDoor');
+    	var PuzzleGuardDoorZone = me.game.getEntityByName('PuzzleGuardDoor');
+    	var GuardTeleportDoorZone = me.game.getEntityByName('GuardTeleportDoor');
+    	var TeleportGuradDoorZone = me.game.getEntityByName('TeleportGuardDoor');
+    	
+    	HomeKeyDoorZone.collidable = true;
+    	KeyHomeDoorZone.collidable = true;
+    	KeyGuardDoorZone.collidable = true;
+    	GuardKeyDoorZone.collidable = true;
+    	GuardPuzzleDoorZone.collidable = true;
+    	PuzzleGuardDoorZone.collidable = true;
+    	GuardTeleportDoorZone.collidable = true;
+    	TeleportGuradDoorZone.collidable = true;
+    }
+});
+
+// Create EnableKeyGuard entity
+var EnableKeyGuard = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+        this.collidable = true;
+    },
+
+    onCollision: function() {
+    	var HomeKeyDoorZone = me.game.getEntityByName('HomeKeyDoor');
+    	var KeyHomeDoorZone = me.game.getEntityByName('KeyHomeDoor');
+    	var KeyGuardDoorZone = me.game.getEntityByName('KeyGuardDoor');
+    	var GuardKeyDoorZone = me.game.getEntityByName('GuardKeyDoor');
+    	var GuardPuzzleDoorZone = me.game.getEntityByName('GuardPuzzleDoor');
+    	var PuzzleGuardDoorZone = me.game.getEntityByName('PuzzleGuardDoor');
+    	var GuardTeleportDoorZone = me.game.getEntityByName('GuardTeleportDoor');
+    	var TeleportGuradDoorZone = me.game.getEntityByName('TeleportGuardDoor');
+    	
+    	HomeKeyDoorZone.collidable = true;
+    	KeyHomeDoorZone.collidable = true;
+    	KeyGuardDoorZone.collidable = true;
+    	GuardKeyDoorZone.collidable = true;
+    	GuardPuzzleDoorZone.collidable = true;
+    	PuzzleGuardDoorZone.collidable = true;
+    	GuardTeleportDoorZone.collidable = true;
+    	TeleportGuradDoorZone.collidable = true;
+    }
+});
+
+// Create EnableTeleportGuard entity
+var EnableTeleportGuard = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+        this.collidable = true;
+    },
+
+    onCollision: function() {
+    	var HomeKeyDoorZone = me.game.getEntityByName('HomeKeyDoor');
+    	var KeyHomeDoorZone = me.game.getEntityByName('KeyHomeDoor');
+    	var KeyGuardDoorZone = me.game.getEntityByName('KeyGuardDoor');
+    	var GuardKeyDoorZone = me.game.getEntityByName('GuardKeyDoor');
+    	var GuardPuzzleDoorZone = me.game.getEntityByName('GuardPuzzleDoor');
+    	var PuzzleGuardDoorZone = me.game.getEntityByName('PuzzleGuardDoor');
+    	var GuardTeleportDoorZone = me.game.getEntityByName('GuardTeleportDoor');
+    	var TeleportGuradDoorZone = me.game.getEntityByName('TeleportGuardDoor');
+    	
+    	HomeKeyDoorZone.collidable = true;
+    	KeyHomeDoorZone.collidable = true;
+    	KeyGuardDoorZone.collidable = true;
+    	GuardKeyDoorZone.collidable = true;
+    	GuardPuzzleDoorZone.collidable = true;
+    	PuzzleGuardDoorZone.collidable = true;
+    	GuardTeleportDoorZone.collidable = true;
+    	TeleportGuradDoorZone.collidable = true;
+    }
+});
+
+// Create HomeKeyDoor entity
+var HomeKeyDoor = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+
+        // Add animations
+       // this.addAnimation("off", [0]);
+       // this.addAnimation("on", [0,1,2,3,4,5]);
+       // this.setCurrentAnimation("off");
+    },
+
+    update: function() {
+    /*
+        if (me.gamestat.getItemValue("engineCollected") == 1) {
+            this.setCurrentAnimation("on");
+            this.parent(this);
+            return true;
+        }
+     */
+    }
+});
+
+// Create KeyHomeDoor entity
+var KeyHomeDoor = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+                this.collidable = true;
+
+
+        // Add animations
+       // this.addAnimation("off", [0]);
+       // this.addAnimation("on", [0,1,2,3,4,5]);
+       // this.setCurrentAnimation("off");
+    },
+
+    onCollision: function() {
+       	 	this.collidable = false;
+			me.audio.play("roombg-teleporter", 0.6,"true");
+   	}
+});
+
+// Create KeyGuardDoor entity
+var KeyGuardDoor = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+
+        // Add animations
+       // this.addAnimation("off", [0]);
+       // this.addAnimation("on", [0,1,2,3,4,5]);
+       // this.setCurrentAnimation("off");
+    },
+
+    update: function() {
+    /*
+        if (me.gamestat.getItemValue("engineCollected") == 1) {
+            this.setCurrentAnimation("on");
+            this.parent(this);
+            return true;
+        }
+     */
+    }
+});
+
+// Create GuardKeyDoor entity
+var GuardKeyDoor = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+
+        // Add animations
+       // this.addAnimation("off", [0]);
+       // this.addAnimation("on", [0,1,2,3,4,5]);
+       // this.setCurrentAnimation("off");
+    },
+
+    update: function() {
+    /*
+        if (me.gamestat.getItemValue("engineCollected") == 1) {
+            this.setCurrentAnimation("on");
+            this.parent(this);
+            return true;
+        }
+     */
+    }
+});
+
+// Create GuardPuzzleDoor entity
+var GuardPuzzleDoor = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+
+        // Add animations
+       // this.addAnimation("off", [0]);
+       // this.addAnimation("on", [0,1,2,3,4,5]);
+       // this.setCurrentAnimation("off");
+    },
+
+    update: function() {
+    /*
+        if (me.gamestat.getItemValue("engineCollected") == 1) {
+            this.setCurrentAnimation("on");
+            this.parent(this);
+            return true;
+        }
+     */
+    }
+});
+
+// Create PuzzleGuardDoor entity
+var PuzzleGuardDoor = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+       this.parent(x, y, settings);
+
+        // Add animations
+       // this.addAnimation("off", [0]);
+       // this.addAnimation("on", [0,1,2,3,4,5]);
+       // this.setCurrentAnimation("off");
+    },
+
+    update: function() {
+    /*
+        if (me.gamestat.getItemValue("engineCollected") == 1) {
+            this.setCurrentAnimation("on");
+            this.parent(this);
+            return true;
+        }
+     */
+    }
+});
+
+// Create GuardTeleportDoor entity
+var GuardTeleportDoor = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+
+        // Add animations
+       // this.addAnimation("off", [0]);
+       // this.addAnimation("on", [0,1,2,3,4,5]);
+       // this.setCurrentAnimation("off");
+    },
+
+    update: function() {
+    /*
+        if (me.gamestat.getItemValue("engineCollected") == 1) {
+            this.setCurrentAnimation("on");
+            this.parent(this);
+            return true;
+        }
+     */
+    }
+});
+
+// Create TeleportGuardDoor entity
+var TeleportGuardDoor = me.InvisibleEntity.extend({
+    // Constructor
+    init: function(x, y, settings) {
+        // Call the constructor
+        this.parent(x, y, settings);
+
+        // Add animations
+       // this.addAnimation("off", [0]);
+       // this.addAnimation("on", [0,1,2,3,4,5]);
+       // this.setCurrentAnimation("off");
+    },
+
+    update: function() {
+    /*
+        if (me.gamestat.getItemValue("engineCollected") == 1) {
+            this.setCurrentAnimation("on");
+            this.parent(this);
+            return true;
+        }
+     */
+    }
+});
+
