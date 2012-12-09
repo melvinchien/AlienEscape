@@ -215,6 +215,7 @@ var EnginePieceEntity = me.CollectableEntity.extend({
     },
 
     onCollision: function() {
+   		me.audio.play("chime-pickup-bonus", 0.3);
         me.game.HUD.updateItemValue("stamina", me.gamestat.getItemValue("staminaBonus"));
         this.collidable = false;
         me.game.remove(this);
@@ -233,6 +234,11 @@ var KeyEntity = me.CollectableEntity.extend({
     },
 
     onCollision: function() {
+    me.audio.play("chime-pickup-bonus", 0.3);
+    this.collidable = false;
+	me.game.remove(this);
+    me.gamestat.setValue("keyCollected", 1);
+
     // do something when collected
     }
 });

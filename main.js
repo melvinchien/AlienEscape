@@ -66,6 +66,11 @@ var g_resources = [
     src: "sounds/",
     channel : 1
 }, {
+    name: "chime-pickup-bonus",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+},{
     name: "foot_la1",
     type: "audio",
     src: "sounds/",
@@ -308,6 +313,7 @@ var jsApp = {
         me.gamestat.add("staminaF2", 101);
         me.gamestat.add("staminaBonus", 15);
         me.gamestat.add("engineCollected");
+        me.gamestat.add("keyCollected");
         me.gamestat.add("moved");
         me.gamestat.add("playerX");
         me.gamestat.add("playerY");
