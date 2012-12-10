@@ -76,6 +76,26 @@ var g_resources = [
     src: "sounds/",
     channel : 1
 },{
+    name: "roombg-home",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+},{
+    name: "roombg-key",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "roombg-puzzle",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "roombg-guard",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
     name: "foot_la1",
     type: "audio",
     src: "sounds/",
@@ -308,11 +328,6 @@ var jsApp = {
         me.entityPool.add("PuzzleGuardDoor", PuzzleGuardDoor);
         me.entityPool.add("GuardTeleportDoor", GuardTeleportDoor);
         me.entityPool.add("TeleportGuardDoor", TeleportGuardDoor);
-        me.entityPool.add("EnableKeyHome", EnableKeyHome);
-        me.entityPool.add("EnableGuardPuzzle", EnableGuardPuzzle);
-        me.entityPool.add("EnableKeyGuard", EnableKeyGuard);
-        me.entityPool.add("EnableTeleportGuard", EnableTeleportGuard);
-
 
 
         // Enable the keyboard
@@ -328,6 +343,7 @@ var jsApp = {
 
         // Store statistics and values (Default value is 0)
         me.gamestat.add("music");
+        me.gamestat.add("bg");
         me.gamestat.add("staminaF1", 101);
         me.gamestat.add("staminaF2", 101);
         me.gamestat.add("staminaBonus", 15);
@@ -358,6 +374,10 @@ var PlayScreen = me.ScreenObject.extend( {
 
         // make sure everyhting is in the right order
         me.game.sort();
+        
+        // start the background noise for the starting room
+        me.audio.play("roombg-home",0.6,true);
+        me.gamestat.setValue("bg", 1);
 
     },
 

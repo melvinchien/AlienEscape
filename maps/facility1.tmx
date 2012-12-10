@@ -86,10 +86,6 @@
   <object name="PuzzleGuardDoor" x="483" y="260" width="56" height="23"/>
   <object name="TeleportGuardDoor" x="261" y="579" width="52" height="24"/>
   <object name="GuardTeleportDoor" x="261" y="645" width="55" height="21"/>
-  <object name="EnableKeyHome" x="838" y="453" width="51" height="20"/>
-  <object name="EnableGuardPuzzle" x="486" y="228" width="51" height="20"/>
-  <object name="EnableTeleportGuard" x="261" y="612" width="51" height="20"/>
-  <object name="EnableKeyGuard" x="706" y="104" width="25" height="51"/>
  </objectgroup>
  <layer name="collision" width="32" height="24" visible="0">
   <data encoding="base64">

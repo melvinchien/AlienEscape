@@ -245,150 +245,24 @@ var KeyEntity = me.CollectableEntity.extend({
 
 /* AUDIO ZONES */
 
-// Create EnableKeyHome entity
-var EnableKeyHome = me.InvisibleEntity.extend({
-    // Constructor
-    init: function(x, y, settings) {
-        // Call the constructor
-        this.parent(x, y, settings);
-        this.collidable = true;
-    },
-
-    onCollision: function() {
-    console.log('keyhome');
-    	var HomeKeyDoorZone = me.game.getEntityByName('HomeKeyDoor');
-    	var KeyHomeDoorZone = me.game.getEntityByName('KeyHomeDoor');
-    	var KeyGuardDoorZone = me.game.getEntityByName('KeyGuardDoor');
-    	var GuardKeyDoorZone = me.game.getEntityByName('GuardKeyDoor');
-    	var GuardPuzzleDoorZone = me.game.getEntityByName('GuardPuzzleDoor');
-    	var PuzzleGuardDoorZone = me.game.getEntityByName('PuzzleGuardDoor');
-    	var GuardTeleportDoorZone = me.game.getEntityByName('GuardTeleportDoor');
-    	var TeleportGuradDoorZone = me.game.getEntityByName('TeleportGuardDoor');
-    	
-    	HomeKeyDoorZone.collidable = true;
-    	KeyHomeDoorZone.collidable = true;
-    	KeyGuardDoorZone.collidable = true;
-    	GuardKeyDoorZone.collidable = true;
-    	GuardPuzzleDoorZone.collidable = true;
-    	PuzzleGuardDoorZone.collidable = true;
-    	GuardTeleportDoorZone.collidable = true;
-    	TeleportGuradDoorZone.collidable = true;
-    	console.log(KeyHomeDoorZone.collidable);
-    }
-});
-
-// Create EnableGuardPuzzle entity
-var EnableGuardPuzzle = me.InvisibleEntity.extend({
-    // Constructor
-    init: function(x, y, settings) {
-        // Call the constructor
-        this.parent(x, y, settings);
-        this.collidable = true;
-    },
-
-    onCollision: function() {
-    	var HomeKeyDoorZone = me.game.getEntityByName('HomeKeyDoor');
-    	var KeyHomeDoorZone = me.game.getEntityByName('KeyHomeDoor');
-    	var KeyGuardDoorZone = me.game.getEntityByName('KeyGuardDoor');
-    	var GuardKeyDoorZone = me.game.getEntityByName('GuardKeyDoor');
-    	var GuardPuzzleDoorZone = me.game.getEntityByName('GuardPuzzleDoor');
-    	var PuzzleGuardDoorZone = me.game.getEntityByName('PuzzleGuardDoor');
-    	var GuardTeleportDoorZone = me.game.getEntityByName('GuardTeleportDoor');
-    	var TeleportGuradDoorZone = me.game.getEntityByName('TeleportGuardDoor');
-    	
-    	HomeKeyDoorZone.collidable = true;
-    	KeyHomeDoorZone.collidable = true;
-    	KeyGuardDoorZone.collidable = true;
-    	GuardKeyDoorZone.collidable = true;
-    	GuardPuzzleDoorZone.collidable = true;
-    	PuzzleGuardDoorZone.collidable = true;
-    	GuardTeleportDoorZone.collidable = true;
-    	TeleportGuradDoorZone.collidable = true;
-    }
-});
-
-// Create EnableKeyGuard entity
-var EnableKeyGuard = me.InvisibleEntity.extend({
-    // Constructor
-    init: function(x, y, settings) {
-        // Call the constructor
-        this.parent(x, y, settings);
-        this.collidable = true;
-    },
-
-    onCollision: function() {
-    	var HomeKeyDoorZone = me.game.getEntityByName('HomeKeyDoor');
-    	var KeyHomeDoorZone = me.game.getEntityByName('KeyHomeDoor');
-    	var KeyGuardDoorZone = me.game.getEntityByName('KeyGuardDoor');
-    	var GuardKeyDoorZone = me.game.getEntityByName('GuardKeyDoor');
-    	var GuardPuzzleDoorZone = me.game.getEntityByName('GuardPuzzleDoor');
-    	var PuzzleGuardDoorZone = me.game.getEntityByName('PuzzleGuardDoor');
-    	var GuardTeleportDoorZone = me.game.getEntityByName('GuardTeleportDoor');
-    	var TeleportGuradDoorZone = me.game.getEntityByName('TeleportGuardDoor');
-    	
-    	HomeKeyDoorZone.collidable = true;
-    	KeyHomeDoorZone.collidable = true;
-    	KeyGuardDoorZone.collidable = true;
-    	GuardKeyDoorZone.collidable = true;
-    	GuardPuzzleDoorZone.collidable = true;
-    	PuzzleGuardDoorZone.collidable = true;
-    	GuardTeleportDoorZone.collidable = true;
-    	TeleportGuradDoorZone.collidable = true;
-    }
-});
-
-// Create EnableTeleportGuard entity
-var EnableTeleportGuard = me.InvisibleEntity.extend({
-    // Constructor
-    init: function(x, y, settings) {
-        // Call the constructor
-        this.parent(x, y, settings);
-        this.collidable = true;
-    },
-
-    onCollision: function() {
-    	var HomeKeyDoorZone = me.game.getEntityByName('HomeKeyDoor');
-    	var KeyHomeDoorZone = me.game.getEntityByName('KeyHomeDoor');
-    	var KeyGuardDoorZone = me.game.getEntityByName('KeyGuardDoor');
-    	var GuardKeyDoorZone = me.game.getEntityByName('GuardKeyDoor');
-    	var GuardPuzzleDoorZone = me.game.getEntityByName('GuardPuzzleDoor');
-    	var PuzzleGuardDoorZone = me.game.getEntityByName('PuzzleGuardDoor');
-    	var GuardTeleportDoorZone = me.game.getEntityByName('GuardTeleportDoor');
-    	var TeleportGuradDoorZone = me.game.getEntityByName('TeleportGuardDoor');
-    	
-    	HomeKeyDoorZone.collidable = true;
-    	KeyHomeDoorZone.collidable = true;
-    	KeyGuardDoorZone.collidable = true;
-    	GuardKeyDoorZone.collidable = true;
-    	GuardPuzzleDoorZone.collidable = true;
-    	PuzzleGuardDoorZone.collidable = true;
-    	GuardTeleportDoorZone.collidable = true;
-    	TeleportGuradDoorZone.collidable = true;
-    }
-});
-
 // Create HomeKeyDoor entity
 var HomeKeyDoor = me.InvisibleEntity.extend({
     // Constructor
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
+        this.collidable = true;
+	 },
 
-        // Add animations
-       // this.addAnimation("off", [0]);
-       // this.addAnimation("on", [0,1,2,3,4,5]);
-       // this.setCurrentAnimation("off");
-    },
+    onCollision: function() {
+       	 	   if (me.gamestat.getItemValue("bg") != 1) {
+					me.audio.play("roombg-home", 0.45,"true");
+					me.audio.stop("roombg-key");
+					me.gamestat.setValue("bg",1);
+           	 }
 
-    update: function() {
-    /*
-        if (me.gamestat.getItemValue("engineCollected") == 1) {
-            this.setCurrentAnimation("on");
-            this.parent(this);
-            return true;
-        }
-     */
-    }
+			//console.log(this);
+   	}
 });
 
 // Create KeyHomeDoor entity
@@ -397,18 +271,16 @@ var KeyHomeDoor = me.InvisibleEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
-                this.collidable = true;
-
-
-        // Add animations
-       // this.addAnimation("off", [0]);
-       // this.addAnimation("on", [0,1,2,3,4,5]);
-       // this.setCurrentAnimation("off");
-    },
+        this.collidable = true;
+	 },
 
     onCollision: function() {
-       	 	this.collidable = false;
-			me.audio.play("roombg-teleporter", 0.6,"true");
+       	 	   if (me.gamestat.getItemValue("bg") != 2) {
+					me.audio.play("roombg-key", 0.6,"true");
+					me.audio.stop("roombg-home");
+					me.gamestat.setValue("bg",2);
+           	 }
+
    	}
 });
 
@@ -418,22 +290,17 @@ var KeyGuardDoor = me.InvisibleEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
+        this.collidable = true;
+	 },
 
-        // Add animations
-       // this.addAnimation("off", [0]);
-       // this.addAnimation("on", [0,1,2,3,4,5]);
-       // this.setCurrentAnimation("off");
-    },
+    onCollision: function() {
+       	 	   if (me.gamestat.getItemValue("bg") != 2) {
+					me.audio.play("roombg-key", 0.6,"true");
+					me.audio.stop("roombg-guard");
+					me.gamestat.setValue("bg",2);
+           	 }
 
-    update: function() {
-    /*
-        if (me.gamestat.getItemValue("engineCollected") == 1) {
-            this.setCurrentAnimation("on");
-            this.parent(this);
-            return true;
-        }
-     */
-    }
+   	}
 });
 
 // Create GuardKeyDoor entity
@@ -442,22 +309,16 @@ var GuardKeyDoor = me.InvisibleEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
+        this.collidable = true;
+	 },
 
-        // Add animations
-       // this.addAnimation("off", [0]);
-       // this.addAnimation("on", [0,1,2,3,4,5]);
-       // this.setCurrentAnimation("off");
-    },
-
-    update: function() {
-    /*
-        if (me.gamestat.getItemValue("engineCollected") == 1) {
-            this.setCurrentAnimation("on");
-            this.parent(this);
-            return true;
-        }
-     */
-    }
+    onCollision: function() {
+       	 	   if (me.gamestat.getItemValue("bg") != 3) {
+					me.audio.play("roombg-guard", 0.75,"true");
+					me.audio.stop("roombg-key");
+					me.gamestat.setValue("bg",3);
+           	 }
+   	}
 });
 
 // Create GuardPuzzleDoor entity
@@ -466,22 +327,16 @@ var GuardPuzzleDoor = me.InvisibleEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
+        this.collidable = true;
+	 },
 
-        // Add animations
-       // this.addAnimation("off", [0]);
-       // this.addAnimation("on", [0,1,2,3,4,5]);
-       // this.setCurrentAnimation("off");
-    },
-
-    update: function() {
-    /*
-        if (me.gamestat.getItemValue("engineCollected") == 1) {
-            this.setCurrentAnimation("on");
-            this.parent(this);
-            return true;
-        }
-     */
-    }
+    onCollision: function() {
+       	 	   if (me.gamestat.getItemValue("bg") != 3) {
+					me.audio.play("roombg-guard", 0.75,"true");
+					me.audio.stop("roombg-puzzle");
+					me.gamestat.setValue("bg",3);
+           	 }
+   	}
 });
 
 // Create PuzzleGuardDoor entity
@@ -489,23 +344,17 @@ var PuzzleGuardDoor = me.InvisibleEntity.extend({
     // Constructor
     init: function(x, y, settings) {
         // Call the constructor
-       this.parent(x, y, settings);
+        this.parent(x, y, settings);
+        this.collidable = true;
+	 },
 
-        // Add animations
-       // this.addAnimation("off", [0]);
-       // this.addAnimation("on", [0,1,2,3,4,5]);
-       // this.setCurrentAnimation("off");
-    },
-
-    update: function() {
-    /*
-        if (me.gamestat.getItemValue("engineCollected") == 1) {
-            this.setCurrentAnimation("on");
-            this.parent(this);
-            return true;
-        }
-     */
-    }
+    onCollision: function() {
+       	 	   if (me.gamestat.getItemValue("bg") != 4) {
+					me.audio.play("roombg-puzzle", 0.35,"true");
+					me.audio.stop("roombg-guard");
+					me.gamestat.setValue("bg",4);
+           	 }
+   	}
 });
 
 // Create GuardTeleportDoor entity
@@ -514,22 +363,16 @@ var GuardTeleportDoor = me.InvisibleEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
+        this.collidable = true;
+	 },
 
-        // Add animations
-       // this.addAnimation("off", [0]);
-       // this.addAnimation("on", [0,1,2,3,4,5]);
-       // this.setCurrentAnimation("off");
-    },
-
-    update: function() {
-    /*
-        if (me.gamestat.getItemValue("engineCollected") == 1) {
-            this.setCurrentAnimation("on");
-            this.parent(this);
-            return true;
-        }
-     */
-    }
+    onCollision: function() {
+       	 	   if (me.gamestat.getItemValue("bg") != 3) {
+					me.audio.play("roombg-guard", 0.75,"true");
+					me.audio.stop("roombg-teleporter");
+					me.gamestat.setValue("bg",3);
+           	 }
+   	}
 });
 
 // Create TeleportGuardDoor entity
@@ -538,21 +381,15 @@ var TeleportGuardDoor = me.InvisibleEntity.extend({
     init: function(x, y, settings) {
         // Call the constructor
         this.parent(x, y, settings);
+        this.collidable = true;
+	 },
 
-        // Add animations
-       // this.addAnimation("off", [0]);
-       // this.addAnimation("on", [0,1,2,3,4,5]);
-       // this.setCurrentAnimation("off");
-    },
-
-    update: function() {
-    /*
-        if (me.gamestat.getItemValue("engineCollected") == 1) {
-            this.setCurrentAnimation("on");
-            this.parent(this);
-            return true;
-        }
-     */
-    }
+    onCollision: function() {
+       	 	   if (me.gamestat.getItemValue("bg") != 5) {
+					me.audio.play("roombg-teleporter", 0.9,"true");
+					me.audio.stop("roombg-guard");
+					me.gamestat.setValue("bg",5);
+           	 }
+   	}
 });
 
