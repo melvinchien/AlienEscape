@@ -46,21 +46,72 @@ var g_resources = [
     src: "images/teleporter_tiles.png"
 
 }, {
-    name: "guard_tiles",
+    name: "key",
+    type: "image",
+    src: "images/key.png"
+
+},
+
+
+
+
+ {
+    name: "water",
+    type: "image",
+    src: "images/water.png"
+}, {
+    name: "novice_guard",
     type: "image",
     src: "images/guard_tiles.png"
-
+}, {
+    name: "pro_guard",
+    type: "image",
+    src: "images/guard2_tiles.png"
+}, {
+    name: "elite_guard",
+    type: "image",
+    src: "images/guard3_tiles.png"
+}, {
+    name: "doctor_tiles",
+    type: "image",
+    src: "images/doctor_tiles.png"
+}, {
+    name: "turret_tiles",
+    type: "image",
+    src: "images/turret.png"
+}, {
+    name: "laser_beam",
+    type: "image",
+    src: "images/turret.png"
+}, {
+    name: "advanced_turret_tiles",
+    type: "image",
+    src: "images/advanced_turret.png"
+}, {
+    name: "powerful_laser_beam",
+    type: "image",
+    src: "images/advanced_turret.png"
 }, {
     name: "engine_piece",
     type: "image",
     src: "images/engine_piece.png"
 
 }, {
-    name: "key",
+    name: "fresh_sandwich",
     type: "image",
-    src: "images/key.png"
-
+    src: "images/fresh_sandwich.png"
+    
 }, {
+    name: "rotten_sandwich",
+    type: "image",
+    src: "images/rotten_sandwich.png"
+    
+},
+
+
+
+
+ {
     name: "music-temp",
     type: "audio",
     src: "sounds/",
@@ -282,7 +333,11 @@ var jsApp = {
     // Initialize the jsApp
 
     onload: function() {
-
+        
+        
+        me.debug.renderHitBox = true;
+        
+        
         // Initialize the video
         if (!me.video.init("jsapp", 1024, 768, false, 1.0)) {
             alert("Sorry but your browser does not support html 5 canvas.");
@@ -307,6 +362,8 @@ var jsApp = {
     loaded: function () {
         // Set the "Menu" Screen Object
         me.state.set(me.state.MENU, new TitleScreen());
+        
+        me.state.set(me.state.GAMEOVER, new GameOver());
 
         // Set the "Play/Ingame" Screen Object
         me.state.set(me.state.PLAY, new PlayScreen());
@@ -316,10 +373,22 @@ var jsApp = {
 
         // Add entities in entity pool
         me.entityPool.add("player", PlayerEntity);
+        
+        me.entityPool.add("NoviceGuard1-1", NoviceGuard);
+        me.entityPool.add("NoviceGuard1-2", NoviceGuard);
+        me.entityPool.add("ProGuard1-1", ProGuard);
+        me.entityPool.add("EliteGuard1-1", EliteGuard);
+        me.entityPool.add("Turret1-1", LaserTurret);
+        me.entityPool.add("Turret1-2", LaserTurret);
+        me.entityPool.add("Advanced_Turret1-1", AdvancedLaserTurret);
+        me.entityPool.add("Advanced_Turret1-2", AdvancedLaserTurret);
+        me.entityPool.add("Doctor", Doctor);
+        
         me.entityPool.add("teleporter", TeleporterEntity);
-        me.entityPool.add("GuardEntity", GuardEntity);
         me.entityPool.add("KeyEntity", KeyEntity);
         me.entityPool.add("enginePiece", EnginePieceEntity);
+
+
         me.entityPool.add("KeyHomeDoor", KeyHomeDoor);
         me.entityPool.add("HomeKeyDoor", HomeKeyDoor);
         me.entityPool.add("KeyGuardDoor", KeyGuardDoor);
@@ -329,6 +398,11 @@ var jsApp = {
         me.entityPool.add("GuardTeleportDoor", GuardTeleportDoor);
         me.entityPool.add("TeleportGuardDoor", TeleportGuardDoor);
 
+
+        me.entityPool.add("WaterSpawn1-1", Water);
+        me.entityPool.add("FSandwichSpawn1-1", FreshSandwich);
+        me.entityPool.add("RSandwichSpawn1-1", RottenSandwich);
+        
 
         // Enable the keyboard
         me.input.bindKey(me.input.KEY.A, "left", true);
@@ -343,8 +417,12 @@ var jsApp = {
 
         // Store statistics and values (Default value is 0)
         me.gamestat.add("music");
+
         me.gamestat.add("bg");
         me.gamestat.add("staminaF1", 101);
+
+        me.gamestat.add("staminaF1", 151);
+
         me.gamestat.add("staminaF2", 101);
         me.gamestat.add("staminaBonus", 15);
         me.gamestat.add("engineCollected");
@@ -463,6 +541,10 @@ var TurnObject = me.HUD_Item.extend({
         this.font.draw(context, this.value, this.pos.x + x, this.pos.y + y);
     }
 
+});
+
+
+var GameOver = me.ScreenObject.extend({
 });
 
 

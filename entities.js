@@ -4,6 +4,16 @@
 // Version 1.0
 // November 12, 2012
 
+player = null;
+
+function gameOver() {
+    
+    // my code is gone...
+    // didn't have much anayway...
+    
+    me.state.pause();
+}
+
 
 // Create player entity
 var PlayerEntity = me.ObjectEntity.extend({
@@ -26,10 +36,12 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.addAnimation("left", [10,13,14,13]);
         this.addAnimation("idleRight", [15,16,17,16]);
         this.addAnimation("right", [15,18,19,18]);
+        this.addAnimation("dead", [20]);
         this.setCurrentAnimation("idleDown");
 
         // Add footsteps
         this.nextFootVar = "la";  //default footstep
+        player = this;
     },
 
     // Update player position
