@@ -112,7 +112,7 @@ var g_resources = [
 
 
  {
-    name: "music-temp",
+    name: "music-loop",
     type: "audio",
     src: "sounds/",
     channel : 1
@@ -489,7 +489,7 @@ var TitleScreen = me.ScreenObject.extend( {
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
         // play something
-        me.audio.playTrack("music-temp",0.5);
+        me.audio.playTrack("music-loop",0.5);
         me.gamestat.setValue("music", 1);
     },
 
@@ -505,7 +505,7 @@ var TitleScreen = me.ScreenObject.extend( {
                 me.audio.stopTrack();
                 me.gamestat.setValue("music", 0);
             } else {
-                me.audio.playTrack("music-temp");
+                me.audio.playTrack("music-loop");
                 me.gamestat.setValue("music", 1);
             }
         }
