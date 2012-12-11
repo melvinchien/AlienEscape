@@ -37,6 +37,8 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.addAnimation("right", [15, 18, 19, 18]);
         this.addAnimation("dead", [20]);
         this.setCurrentAnimation("idleDown");
+                me.input.bindKey(me.input.KEY.M, "music", true);
+
 
         // Add footsteps
         this.nextFootVar = "la";
@@ -47,6 +49,19 @@ var PlayerEntity = me.ObjectEntity.extend({
 
     // Update player position
     update : function() {
+
+
+		// music toggle
+    	if (me.input.isKeyPressed("music")) {
+            if (me.gamestat.getItemValue("music") == 1) {
+                me.audio.stopTrack();
+                me.gamestat.setValue("music", 0);
+            } else {
+                me.audio.playTrack("music-loop", 0.5);
+                me.gamestat.setValue("music", 1);
+            }
+        }
+
         if (me.game.HUD.getItemValue("stamina") <= 0)
             me.state.change(me.state.GAMEOVER);
 
