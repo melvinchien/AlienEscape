@@ -226,7 +226,7 @@ var GuardEntity = me.ObjectEntity.extend({
         this.collidable = true;
         // make it a enemy object
         this.type = me.game.ENEMY_OBJECT;
-
+        
         // Add animations
         this.addAnimation("idle", [0]);
         this.addAnimation("down", [0, 1, 2, 3, 4]);

@@ -325,7 +325,8 @@ var NoviceGuard = me.ObjectEntity.extend({
         {
             this.direction = DIRECTION.NORTH;
             this.moveYBy = -1;
-        }        
+        }
+        
         
         // down
         this.addAnimation("00", [0]);
@@ -434,7 +435,13 @@ var NoviceGuard = me.ObjectEntity.extend({
             {
                 this.moveXBy = 0;
                 this.moveYBy = 1;
-            }
+            }       
+ 
+       		// sound: play guard  footstep
+            var gFootSound = "foot_" + Number.prototype.random(1, 8);
+            console.log(gFootSound);
+            me.audio.play(gFootSound, 0.3);     
+ 
         }
         else
         {   
@@ -461,7 +468,7 @@ var NoviceGuard = me.ObjectEntity.extend({
                 }
                 
                 this.setCurrentAnimation(this.direction + "" + this.curAni);                
-                this.updateMovement();
+                 this.updateMovement();
                 this.parent(this);
                 return true;
             }

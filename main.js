@@ -145,6 +145,11 @@ var g_resources = [
     src: "sounds/",
     channel : 1
 }, {
+    name: "music-tag",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
     name: "chime-pickup-bonus",
     type: "audio",
     src: "sounds/",
@@ -354,6 +359,46 @@ var g_resources = [
     type: "audio",
     src: "sounds/",
     channel : 1
+}, {
+    name: "foot_1",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "foot_2",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "foot_3",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "foot_4",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "foot_5",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "foot_6",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "foot_7",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "foot_8",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
 }];
 
 
@@ -476,6 +521,7 @@ var PlayScreen = me.ScreenObject.extend( {
         
         
         // start the background noise for the starting room
+        me.audio.playTrack("music-loop", 0.5);
         me.audio.play("roombg-home",0.5,true);
         me.gamestat.setValue("bg", 1);
 
@@ -513,6 +559,11 @@ var TitleScreen = me.ScreenObject.extend( {
         // play something
         me.audio.playTrack("music-loop", 0.5);
         me.gamestat.setValue("music", 1);
+                    me.audio.stop("roombg-teleporter");
+            me.audio.stop("roombg-guard");
+            me.audio.stop("roombg-home");
+            me.audio.stop("roombg-key");
+            me.audio.stop("roombg-puzzle");
     },
 
 
@@ -578,6 +629,13 @@ var GameOverScreen = me.ScreenObject.extend({
             // font to display the menu items
             this.font = new me.BitmapFont("font_scifly_green", 32);
             this.font.set("center");
+        	me.audio.playTrack("music-tag", 0.7);
+            me.audio.stop("roombg-teleporter");
+            me.audio.stop("roombg-guard");
+            me.audio.stop("roombg-home");
+            me.audio.stop("roombg-key");
+            me.audio.stop("roombg-puzzle");        	
+
         }
 
         // enable the keyboard
@@ -625,6 +683,13 @@ var WinScreen = me.ScreenObject.extend({
             // font to display the menu items
             this.font = new me.BitmapFont("font_scifly_green", 32);
             this.font.set("center");
+            me.audio.playTrack("music-win", 0.9);
+            me.audio.stop("roombg-teleporter");
+            me.audio.stop("roombg-guard");
+            me.audio.stop("roombg-home");
+            me.audio.stop("roombg-key");
+            me.audio.stop("roombg-puzzle");
+
         }
         
         
