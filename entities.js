@@ -201,6 +201,7 @@ var TeleporterEntity = me.CollectableEntity.extend({
     onCollision : function() {
         if (player.hasEngine)
             if (me.levelDirector.getCurrentLevelId() == "facility1") {
+                     me.audio.play("warp", 0.7);
                 me.levelDirector.loadLevel("facility2");
                 me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF2"));
                 me.audio.stop("roombg-teleporter");
@@ -265,7 +266,7 @@ var KeyEntity = me.CollectableEntity.extend({
 
     onCollision : function() {
         player.hasKey = true;
-        me.audio.play("chime-pickup-bonus", 0.3);
+        me.audio.play("lock", 0.9);
         this.collidable = false;
         me.game.remove(this);
     }
@@ -422,6 +423,7 @@ var GuardTeleportDoor = me.InvisibleEntity.extend({
             me.audio.play("roombg-guard", 0.75, "true");
             me.audio.stop("roombg-teleporter");
             me.gamestat.setValue("bg", 3);
+            
         }
     }
 });

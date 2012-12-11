@@ -414,6 +414,16 @@ var g_resources = [
     type: "audio",
     src: "sounds/",
     channel : 8
+}, {
+    name: "warp",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "lock",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
 }];
 
 
