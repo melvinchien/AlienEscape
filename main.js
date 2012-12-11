@@ -370,6 +370,8 @@ var jsApp = {
         me.state.set(me.state.MENU, new TitleScreen());
 
         me.state.set(me.state.GAMEOVER, new GameOver());
+        
+        me.state.set(me.state.WIN, new Win());
 
         // Set the "Play/Ingame" Screen Object
         me.state.set(me.state.PLAY, new PlayScreen());
@@ -597,6 +599,53 @@ var GameOver = me.ScreenObject.extend({
     }
 });
 
+var Win = me.ScreenObject.extend({
+    init: function() {
+        this.parent(true);
+        this.title = null;
+        this.font = null;
+    },
+
+    onResetEvent: function() {
+        if (this.title == null) {
+            this.title = me.loader.getImage("menu_main");
+            // font to display the menu items
+            this.font = new me.BitmapFont("font_scifly_green", 32);
+            this.font.set("center");
+        }
+
+        // enable the keyboard
+        me.input.bindKey(me.input.KEY.ENTER, "enter", true);
+        me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
+
+    },
+
+
+    update: function() {
+        // enter pressed ?
+        if (me.input.isKeyPressed("enter")) {
+            me.state.change(me.state.PLAY);
+        }
+
+        return true;
+    },
+
+
+    draw: function(context) {
+        context.drawImage(this.title, 0, 0);
+        var x = me.video.getWidth() / 2;
+        var y = me.video.getHeight() / 2;
+        this.font.draw(context, "CONGRATULATION!", x, y);
+        this.font.draw(context, "YOU WON!", x + 10, y + 64);
+        this.font.draw(context, "PRESS ENTER TO PLAY AGAIN", x - 40, y + 64);
+
+    },
+
+    onDestroyEvent: function() {
+        me.input.unbindKey(me.input.KEY.ENTER);
+        me.input.unbindMouse(me.input.mouse.LEFT);
+    }
+});
 
 // Bootstrap
 window.onReady(function() {
