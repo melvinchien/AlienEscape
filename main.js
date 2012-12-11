@@ -563,9 +563,6 @@ var GameOver = me.ScreenObject.extend({
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
-        // play something
-        me.audio.playTrack("music-temp",0.5);
-        me.gamestat.setValue("music", 1);
     },
 
 
