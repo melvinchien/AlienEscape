@@ -411,10 +411,7 @@ var jsApp = {
     // Initialize the jsApp
 
     onload: function() {
-
-
         me.debug.renderHitBox = false;
-
 
         // Initialize the video
         if (!me.video.init("jsapp", 1024, 768, false, 1.0)) {
@@ -442,7 +439,7 @@ var jsApp = {
         me.state.set(me.state.MENU, new TitleScreen());
 
         me.state.set(me.state.GAMEOVER, new GameOverScreen());
-        
+
         me.state.set(me.state.WIN, new WinScreen());
 
         // Set the "Play/Ingame" Screen Object
@@ -454,7 +451,7 @@ var jsApp = {
         // Add entities in entity pool
         me.entityPool.add("player", PlayerEntity);
 
-	me.entityPool.add("fow", FogOfWar);
+        me.entityPool.add("fow", FogOfWar);
 
         me.entityPool.add("NoviceGuard", NoviceGuard);
         me.entityPool.add("ProGuard", ProGuard);
@@ -468,7 +465,6 @@ var jsApp = {
         me.entityPool.add("LockEntity", LockEntity);
         me.entityPool.add("enginePiece", EnginePieceEntity);
 
-
         me.entityPool.add("KeyHomeDoor", KeyHomeDoor);
         me.entityPool.add("HomeKeyDoor", HomeKeyDoor);
         me.entityPool.add("KeyGuardDoor", KeyGuardDoor);
@@ -478,11 +474,9 @@ var jsApp = {
         me.entityPool.add("GuardTeleportDoor", GuardTeleportDoor);
         me.entityPool.add("TeleportGuardDoor", TeleportGuardDoor);
 
-
         me.entityPool.add("WaterSpawn", Water);
         me.entityPool.add("FSandwichSpawn", FreshSandwich);
         me.entityPool.add("RSandwichSpawn", RottenSandwich);
-
 
         // Enable the keyboard
         me.input.bindKey(me.input.KEY.A, "left", true);
@@ -522,9 +516,7 @@ var PlayScreen = me.ScreenObject.extend( {
 
         // make sure everyhting is in the right order
         me.game.sort();
-        
-        
-        
+
         // start the background noise for the starting room
         me.audio.playTrack("music-loop", 0.5);
         me.audio.play("roombg-home",0.5,true);
@@ -564,11 +556,11 @@ var TitleScreen = me.ScreenObject.extend( {
         // play something
         me.audio.playTrack("music-loop", 0.5);
         me.gamestat.setValue("music", 1);
-                    me.audio.stop("roombg-teleporter");
-            me.audio.stop("roombg-guard");
-            me.audio.stop("roombg-home");
-            me.audio.stop("roombg-key");
-            me.audio.stop("roombg-puzzle");
+        me.audio.stop("roombg-teleporter");
+        me.audio.stop("roombg-guard");
+        me.audio.stop("roombg-home");
+        me.audio.stop("roombg-key");
+        me.audio.stop("roombg-puzzle");
     },
 
 
@@ -613,7 +605,6 @@ var StaminaObject = me.HUD_Item.extend({
         this.font = new me.BitmapFont("font_scifly_white", 32);
     },
 
-
     draw: function(context, x, y) {
         this.font.draw(context, this.value, this.pos.x + x, this.pos.y + y);
     }
@@ -634,12 +625,12 @@ var GameOverScreen = me.ScreenObject.extend({
             // font to display the menu items
             this.font = new me.BitmapFont("font_scifly_green", 32);
             this.font.set("center");
-        	me.audio.playTrack("music-tag", 0.7);
+            me.audio.playTrack("music-tag", 0.7);
             me.audio.stop("roombg-teleporter");
             me.audio.stop("roombg-guard");
             me.audio.stop("roombg-home");
             me.audio.stop("roombg-key");
-            me.audio.stop("roombg-puzzle");        	
+            me.audio.stop("roombg-puzzle");
 
         }
 
@@ -655,7 +646,6 @@ var GameOverScreen = me.ScreenObject.extend({
         if (me.input.isKeyPressed("enter")) {
             me.state.change(me.state.PLAY);
         }
-
         return true;
     },
 
@@ -697,8 +687,6 @@ var WinScreen = me.ScreenObject.extend({
 
         }
         
-        
-        
         // enable the keyboard
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
@@ -711,7 +699,6 @@ var WinScreen = me.ScreenObject.extend({
         if (me.input.isKeyPressed("enter")) {
             me.state.change(me.state.PLAY);
         }
-
         return true;
     },
 
@@ -723,7 +710,6 @@ var WinScreen = me.ScreenObject.extend({
         this.font.draw(context, "CONGRATULATIONS!", x, y);
         this.font.draw(context, "YOU WON!", x, y + 64);
         this.font.draw(context, "PRESS ENTER TO PLAY AGAIN", x, y + 128);
-
     },
 
     onDestroyEvent: function() {
