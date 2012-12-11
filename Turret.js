@@ -110,7 +110,7 @@ var LaserBeam = me.ObjectEntity.extend({
             if (newStamina <= 0)
             {
                 newStamina = 0;
-                gameOver();
+                me.state.change(me.state.GAMEOVER);
             }
             me.game.HUD.setItemValue("stamina", newStamina);
             //document.getElementById("debugInfo").innerHTML += this.name + " (" + this.GUID + ")<font color=red>laser</font><br>";
@@ -322,7 +322,7 @@ var PowerfulLaserBeam = me.ObjectEntity.extend({
             if (newStamina <= 0)
             {
                 newStamina = 0;
-                gameOver();
+                me.state.change(me.state.GAMEOVER);
             }
             me.game.HUD.setItemValue("stamina", newStamina);
         }

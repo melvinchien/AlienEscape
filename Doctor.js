@@ -92,13 +92,13 @@ var Doctor = me.ObjectEntity.extend({
    },
    
     update : function() {
-        /*
+        
         if (this.pos.x == player.pos.x && this.pos.y == player.pos.y)
         {
             player.setCurrentAnimation("dead");
-            gameOver();
+            me.state.change(me.state.GAMEOVER);
         }
-        */
+        
         
         if (this.warpSeq < 2)   // animation
         {
