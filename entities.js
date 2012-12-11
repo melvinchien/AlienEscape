@@ -329,7 +329,7 @@ var HomeKeyDoor = me.InvisibleEntity.extend({
 
     onCollision : function() {
         if (me.gamestat.getItemValue("bg") != 1) {
-            me.audio.play("roombg-home", 0.3, "true");
+            me.audio.play("roombg-home", 0.45, "true");
             me.audio.stop("roombg-key");
             me.gamestat.setValue("bg", 1);
         }
@@ -350,7 +350,7 @@ var KeyHomeDoor = me.InvisibleEntity.extend({
     onCollision : function() {
         if (me.gamestat.getItemValue("bg") != 2) {
 
-            me.audio.play("roombg-key", 0.6, "true");
+            me.audio.play("roombg-key", 0.75, "true");
             me.audio.stop("roombg-home");
             me.gamestat.setValue("bg", 2);
         }
@@ -371,7 +371,7 @@ var KeyGuardDoor = me.InvisibleEntity.extend({
             player.disableMoveLeft = true;
 
         if (me.gamestat.getItemValue("bg") != 2) {
-            me.audio.play("roombg-key", 0.6, "true");
+            me.audio.play("roombg-key", 0.75, "true");
             me.audio.stop("roombg-guard");
             me.gamestat.setValue("bg", 2);
         }
@@ -390,7 +390,7 @@ var GuardKeyDoor = me.InvisibleEntity.extend({
 
     onCollision : function() {
         if (me.gamestat.getItemValue("bg") != 3) {
-            me.audio.play("roombg-guard", 0.75, "true");
+            me.audio.play("roombg-guard", 0.9, "true");
             me.audio.stop("roombg-key");
             me.gamestat.setValue("bg", 3);
         }
@@ -408,7 +408,7 @@ var GuardPuzzleDoor = me.InvisibleEntity.extend({
 
     onCollision : function() {
         if (me.gamestat.getItemValue("bg") != 3) {
-            me.audio.play("roombg-guard", 0.75, "true");
+            me.audio.play("roombg-guard", 0.9, "true");
             me.audio.stop("roombg-puzzle");
             me.gamestat.setValue("bg", 3);
         }
@@ -426,7 +426,7 @@ var PuzzleGuardDoor = me.InvisibleEntity.extend({
 
     onCollision : function() {
         if (me.gamestat.getItemValue("bg") != 4) {
-            me.audio.play("roombg-puzzle", 0.35, "true");
+            me.audio.play("roombg-puzzle", 0.5, "true");
             me.audio.stop("roombg-guard");
             me.gamestat.setValue("bg", 4);
         }
