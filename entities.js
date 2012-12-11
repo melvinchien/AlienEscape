@@ -199,12 +199,13 @@ var TeleporterEntity = me.CollectableEntity.extend({
     },
 
     onCollision : function() {
-        if (me.levelDirector.getCurrentLevelId() == "facility1") {
-            me.levelDirector.loadLevel("facility2");
-            me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF2"));
-        } else if (me.levelDirector.getCurrentLevelId() == "facility2") {
-            me.state.change(me.state.WIN);
-        }
+        if (player.hasEngine)
+            if (me.levelDirector.getCurrentLevelId() == "facility1") {
+                me.levelDirector.loadLevel("facility2");
+                me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF2"));
+            } else if (me.levelDirector.getCurrentLevelId() == "facility2") {
+                me.state.change(me.state.WIN);
+            }
     }
 });
 

@@ -383,9 +383,9 @@ var jsApp = {
         // Set the "Menu" Screen Object
         me.state.set(me.state.MENU, new TitleScreen());
 
-        me.state.set(me.state.GAMEOVER, new GameOver());
+        me.state.set(me.state.GAMEOVER, new GameOverScreen());
         
-        me.state.set(me.state.WIN, new Win());
+        me.state.set(me.state.WIN, new WinScreen());
 
         // Set the "Play/Ingame" Screen Object
         me.state.set(me.state.PLAY, new PlayScreen());
@@ -462,9 +462,11 @@ var PlayScreen = me.ScreenObject.extend( {
 
         // make sure everyhting is in the right order
         me.game.sort();
-
+        
+        
+        
         // start the background noise for the starting room
-        me.audio.play("roombg-home",0.6,true);
+        me.audio.play("roombg-home",0.5,true);
         me.gamestat.setValue("bg", 1);
 
     },
@@ -553,7 +555,7 @@ var TurnObject = me.HUD_Item.extend({
 });
 
 
-var GameOver = me.ScreenObject.extend({
+var GameOverScreen = me.ScreenObject.extend({
     init: function() {
         this.parent(true);
         this.title = null;
@@ -590,7 +592,7 @@ var GameOver = me.ScreenObject.extend({
         var x = me.video.getWidth() / 2;
         var y = me.video.getHeight() / 2;
         this.font.draw(context, "GAME OVER", x, y);
-        this.font.draw(context, "PRESS ENTER TO TRY AGAIN", x - 40, y + 64);
+        this.font.draw(context, "PRESS ENTER TO TRY AGAIN", x, y + 64);
 
     },
 
@@ -600,7 +602,7 @@ var GameOver = me.ScreenObject.extend({
     }
 });
 
-var Win = me.ScreenObject.extend({
+var WinScreen = me.ScreenObject.extend({
     init: function() {
         this.parent(true);
         this.title = null;
@@ -615,7 +617,8 @@ var Win = me.ScreenObject.extend({
             this.font.set("center");
         }
         
-        me.audio.playTrack("music-win", 0.5);
+        
+        
         // enable the keyboard
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
@@ -637,9 +640,9 @@ var Win = me.ScreenObject.extend({
         context.drawImage(this.title, 0, 0);
         var x = me.video.getWidth() / 2;
         var y = me.video.getHeight() / 2;
-        this.font.draw(context, "CONGRATULATION!", x, y);
-        this.font.draw(context, "YOU WON!", x + 10, y + 64);
-        this.font.draw(context, "PRESS ENTER TO PLAY AGAIN", x - 40, y + 64);
+        this.font.draw(context, "CONGRATULATIONS!", x, y);
+        this.font.draw(context, "YOU WON!", x, y + 64);
+        this.font.draw(context, "PRESS ENTER TO PLAY AGAIN", x, y + 128);
 
     },
 
