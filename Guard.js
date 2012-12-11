@@ -400,13 +400,16 @@ var NoviceGuard = me.ObjectEntity.extend({
                 player.setCurrentAnimation("dead");
                 
                 //player.flicker(2, function() {this.collidable = true;});
-                //player.flicker(0);
+                
+                player.flicker(0);
                 var newStamina = me.game.HUD.getItemValue("stamina") - this.damage;
                 if (newStamina <= 0)
                 {
+                	
                     newStamina = 0;
-                    gameOver();
+                    me.state.change(me.state.GAMEOVER);
                 }
+                
                 me.game.HUD.setItemValue("stamina", newStamina);
                 document.getElementById("debugInfo").innerHTML += "<font color=red>contact</font><br>";
             }
@@ -606,12 +609,12 @@ var ProGuard = me.ObjectEntity.extend({
                 player.setCurrentAnimation("dead");
                 
                 //player.flicker(2, function() {this.collidable = true;});
-                //player.flicker(0);
+                player.flicker(0);
                 var newStamina = me.game.HUD.getItemValue("stamina") - this.damage;
                 if (newStamina <= 0)
                 {
                     newStamina = 0;
-                    gameOver();
+                    me.state.change(me.state.GAMEOVER);;
                 }
                 me.game.HUD.setItemValue("stamina", newStamina);
                 document.getElementById("debugInfo").innerHTML += "<font color=red>contact</font><br>";
@@ -874,7 +877,6 @@ var EliteGuard = me.ObjectEntity.extend({
         
         this.updateColRect(8, 16, -1, 0);
     },
-    
     update: function() {
         this.gravity = 0;
         
@@ -893,12 +895,12 @@ var EliteGuard = me.ObjectEntity.extend({
                 player.setCurrentAnimation("dead");
                 
                 //player.flicker(2, function() {this.collidable = true;});
-                //player.flicker(0);
+                player.flicker(0);
                 var newStamina = me.game.HUD.getItemValue("stamina") - this.damage;
                 if (newStamina <= 0)
                 {
                     newStamina = 0;
-                    gameOver();
+                    me.state.change(me.state.GAMEOVER);;
                 }
                 me.game.HUD.setItemValue("stamina", newStamina);
                 document.getElementById("debugInfo").innerHTML += "<font color=red>contact</font><br>";

@@ -10,8 +10,9 @@ var Water = me.ObjectEntity.extend({
         
         this.type = me.game.COLLECTABLE_OBJECT;
         
-        this.pos.x += randomInt(0, settings.width / 32) * 32;
-        this.pos.y += randomInt(0, settings.height / 32) * 32;
+        // updated this to fix out-of-bound values
+        this.pos.x += randomInt(1, settings.width / 32 - 1) * 32;
+        this.pos.y += randomInt(1, settings.height / 32 - 1)  * 32;
         
         
         this.reward = 12;
