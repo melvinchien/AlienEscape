@@ -186,6 +186,25 @@ function nextMoveCheck(obj) {
     var asdf = newDirection[randomInt(0, newDirection.length)];
     //document.getElementById("debugInfo").innerHTML += "<br>" + newDirection + " (" + newDirection.length + "): " + asdf + "<br>";
     //return newDirection[randomInt(0, newDirection.length)];
+    switch (asdf)
+    {
+        case DIRECTION.SOUTH:
+            if (me.game.collisionMap.getTile(obj.pos.x, obj.pos.y + 32) !=
+                null)
+                return DIRECTION.NORTH;
+        case DIRECTION.EAST:
+            if (me.game.collisionMap.getTile(obj.pos.x + 32, obj.pos.y) !=
+                null)
+                return DIRECTION.WEST;
+        case DIRECTION.NORTH:
+            if (me.game.collisionMap.getTile(obj.pos.x, obj.pos.y - 32) !=
+                null)
+                return DIRECTION.SOUTH;
+        case DIRECTION.WEST:
+            if (me.game.collisionMap.getTile(obj.pos.x - 32, obj.pos.y) !=
+                null)
+                return DIRECTION.EAST;
+    }
 
     return asdf;
 }
