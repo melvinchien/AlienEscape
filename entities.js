@@ -71,7 +71,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
             var myFootSound = "FOOT_" + this.nextFootVar + footRand;
-            me.audio.play(myFootSound, 0.2);
+            me.audio.play(myFootSound, 0.4);
             // Pick a new footstep variation for next time!
             if (this.nextFootVar == "la") {
                 this.nextFootVar = "rb";
@@ -94,7 +94,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
             var myFootSound = "FOOT_" + this.nextFootVar + footRand;
-            me.audio.play(myFootSound, 0.2);
+            me.audio.play(myFootSound, 0.4);
             // Pick a new footstep variation for next time!
             if (this.nextFootVar == "la") {
                 this.nextFootVar = "rb";
@@ -115,7 +115,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
             var myFootSound = "FOOT_" + this.nextFootVar + footRand;
-            me.audio.play(myFootSound, 0.2);
+            me.audio.play(myFootSound, 0.4);
             // Pick a new footstep variation for next time!
             if (this.nextFootVar == "la") {
                 this.nextFootVar = "rb";
@@ -135,7 +135,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
             var myFootSound = "FOOT_" + this.nextFootVar + footRand;
-            me.audio.play(myFootSound, 0.2);
+            me.audio.play(myFootSound, 0.4);
             // Pick a new footstep variation for next time!
             if (this.nextFootVar == "la") {
                 this.nextFootVar = "rb";

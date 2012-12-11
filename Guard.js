@@ -468,7 +468,7 @@ var NoviceGuard = me.ObjectEntity.extend({
             // sound: play guard  footstep
             var gFootSound = "foot_" + Number.prototype.random(1, 8);
             //console.log(gFootSound);
-            me.audio.play(gFootSound, 0.3);
+            me.audio.play(gFootSound, 0.2);
 
         }
         else
@@ -704,7 +704,7 @@ var ProGuard = me.ObjectEntity.extend({
                 // sound: play guard  footstep
                 var gFootSound = "foot_" + Number.prototype.random(1, 8);
                 //console.log(gFootSound);
-                me.audio.play(gFootSound, 0.3);
+                me.audio.play(gFootSound, 0.2);
 
 
             }
@@ -945,7 +945,7 @@ var EliteGuard = me.ObjectEntity.extend({
                 // sound: play guard  footstep
                 var gFootSound = "foot_" + Number.prototype.random(1, 8);
                 //console.log(gFootSound);
-                me.audio.play(gFootSound, 0.3);
+                me.audio.play(gFootSound, 0.2);
 
                 //document.getElementById("debugInfo").innerHTML = "<font color=red>in range</font><br>" + this.direction + "->";
                 //document.getElementById("debugInfo").innerHTML += this.direction + "->";
