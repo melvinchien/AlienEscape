@@ -429,6 +429,11 @@ var g_resources = [
     src: "sounds/",
     channel : 1
 }, {
+    name: "warp2",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
     name: "lock",
     type: "audio",
     src: "sounds/",
@@ -712,6 +717,7 @@ var WinScreen = me.ScreenObject.extend({
         }
         
         // enable the keyboard
+        me.audio.play("warp2", 0.9);
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
         me.audio.playTrack("music-win", 0.9);
