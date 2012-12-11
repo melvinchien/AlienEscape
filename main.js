@@ -35,6 +35,15 @@ var g_resources = [
     type: "tmx",
     src: "maps/facility1.tmx"
 
+},  {
+    name: "facility2_level_tiles",
+    type: "image",
+    src: "images/facility2_level_tiles.png"
+}, {
+    name: "facility2",
+    type: "tmx",
+    src: "maps/facility2.tmx"
+
 }, {
     name: "alien_tiles",
     type: "image",
