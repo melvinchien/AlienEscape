@@ -69,6 +69,10 @@ var g_resources = [
     type: "image",
     src: "images/lock.png"
 
+}, {
+    name: "fow",
+    type: "image",
+    src: "images/fow.png"
 },
 
 
@@ -399,6 +403,8 @@ var jsApp = {
 
         // Add entities in entity pool
         me.entityPool.add("player", PlayerEntity);
+
+	me.entityPool.add("fow", FogOfWar);
 
         me.entityPool.add("NoviceGuard", NoviceGuard);
         me.entityPool.add("ProGuard", ProGuard);
