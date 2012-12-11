@@ -32,9 +32,12 @@ var Fog = me.AnimationSheet.extend({
 
         this.addAnimation(0, [3]);
         this.addAnimation(1, [3]);
-        this.addAnimation(2, [2]);
-        this.addAnimation(3, [1]);
-        this.addAnimation(4, [0]);
+        this.addAnimation(2, [3]);
+        this.addAnimation(3, [2]);
+        this.addAnimation(4, [2]);
+        this.addAnimation(5, [1]);
+        this.addAnimation(6, [1]);
+        this.addAnimation(7, [0]);
         this.setCurrentAnimation(3);
         this.visible = true;
 
@@ -98,14 +101,14 @@ var Fog = me.AnimationSheet.extend({
                 distX + ", " + distY;
             }
 
-            if (Math.abs(distX) > 4)
-                distX = (distX / Math.abs(distX)) * 4;
-            if (Math.abs(distY) > 4)
-                distY = (distY / Math.abs(distY)) * 4;
+            if (Math.abs(distX) > 7)
+                distX = (distX / Math.abs(distX)) * 7;
+            if (Math.abs(distY) > 7)
+                distY = (distY / Math.abs(distY)) * 7;
             var dist = (Math.abs(distX) > Math.abs(distY)) ? Math.abs(distX) : Math.abs(distY);
 
             if (isBlocked)
-                dist = 4;
+                dist = 7;
 
             if (!this.isCurrentAnimation(dist))
             {

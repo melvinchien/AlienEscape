@@ -23,6 +23,7 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.hasKey = false;
         this.disableMoveLeft = false;
         this.moved = false;
+        this.moveCount = 0;
         this.playerX = Math.round(this.pos.x / 32);
         this.playerY = Math.round(this.pos.y / 32);
         this.hasEngine = false;
@@ -49,8 +50,6 @@ var PlayerEntity = me.ObjectEntity.extend({
 
     // Update player position
     update : function() {
-
-
         // music toggle
         if (me.input.isKeyPressed("music")) {
             if (me.gamestat.getItemValue("music") == 1) {
@@ -67,7 +66,6 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         if (me.input.isKeyPressed("left") && !this.disableMoveLeft) {
             this.setCurrentAnimation("left", "idleLeft");
-            fogVisible = true;
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
             var myFootSound = "FOOT_" + this.nextFootVar + footRand;
@@ -86,7 +84,6 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Update velocity
             this.vel.x -= 32;
         } else if (me.input.isKeyPressed("right")) {
-            fogVisible = true;
             //enable player to move left again
             this.disableMoveLeft = false;
             this.setCurrentAnimation("right", "idleRight");
@@ -109,7 +106,6 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Update velocity
             this.vel.x += 32;
         } else if (me.input.isKeyPressed("up")) {
-            fogVisible = true;
             this.setCurrentAnimation("up", "idleUp");
 
             // Generates a footstep sound
@@ -157,8 +153,6 @@ var PlayerEntity = me.ObjectEntity.extend({
         // Update player movement
         this.updateMovement();
 
-
-
         var res = me.game.collide(this);
         if (res) {
             // if we collide with an enemy
@@ -182,7 +176,17 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.playerX = newX;
             this.playerY = newY;
             this.moved = true;
-
+            
+            if (fogVisible) {
+                this.moveCount = 0;
+            } else {
+                this.moveCount++;
+                if (this.moveCount > 4) {
+                    this.moveCount = 0;
+                    fogVisible = true;
+                }
+            }
+            
             // Update stamina
             me.game.HUD.updateItemValue("stamina", -1);
             // Update animation if necessary
