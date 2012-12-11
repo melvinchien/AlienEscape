@@ -132,21 +132,26 @@ var g_resources = [
     src: "sounds/",
     channel : 1
 }, {
+    name: "music-win",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
     name: "chime-pickup-bonus",
     type: "audio",
     src: "sounds/",
     channel : 1
-},{
+}, {
     name: "roombg-teleporter",
     type: "audio",
     src: "sounds/",
     channel : 1
-},{
+}, {
     name: "roombg-home",
     type: "audio",
     src: "sounds/",
     channel : 1
-},{
+}, {
     name: "roombg-key",
     type: "audio",
     src: "sounds/",
@@ -435,11 +440,6 @@ var jsApp = {
         me.gamestat.add("bg");
         me.gamestat.add("staminaF1", 151);
         me.gamestat.add("staminaF2", 151);
-        me.gamestat.add("engineCollected");
-        me.gamestat.add("keyCollected");
-        me.gamestat.add("moved");
-        me.gamestat.add("playerX");
-        me.gamestat.add("playerY");
 
         // start the game
         me.state.change(me.state.MENU);
@@ -614,7 +614,8 @@ var Win = me.ScreenObject.extend({
             this.font = new me.BitmapFont("font_scifly_green", 32);
             this.font.set("center");
         }
-
+        
+        me.audio.playTrack("music-win", 0.5);
         // enable the keyboard
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);

@@ -22,7 +22,10 @@ var PlayerEntity = me.ObjectEntity.extend({
         // property to determine if the player has picked up the key or not
         this.hasKey = false;
         this.disableMoveLeft = false;
-
+        this.moved = false;
+        this.playerX = Math.round(this.pos.x / 32);
+        this.playerY = Math.round(this.pos.y / 32);
+        this.hasEngine = false;
         // Add animations
         this.addAnimation("idleDown", [0, 1, 2, 1]);
         this.addAnimation("down", [0, 3, 4, 3]);
@@ -37,15 +40,16 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         // Add footsteps
         this.nextFootVar = "la";
+
         //default footstep
         player = this;
     },
 
     // Update player position
-    update : function() {        
+    update : function() {
         if (me.game.HUD.getItemValue("stamina") <= 0)
             me.state.change(me.state.GAMEOVER);
-        
+
         if (me.input.isKeyPressed("left") && !this.disableMoveLeft) {
             this.setCurrentAnimation("left", "idleLeft");
 
@@ -136,11 +140,7 @@ var PlayerEntity = me.ObjectEntity.extend({
         // Update player movement
         this.updateMovement();
 
-        // Check for movement
-        var oldX = me.gamestat.getItemValue("playerX");
-        var oldY = me.gamestat.getItemValue("playerY");
-        var newX = Math.round(this.pos.x / 32);
-        var newY = Math.round(this.pos.y / 32);
+
 
         var res = me.game.collide(this);
         if (res) {
@@ -152,12 +152,16 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
         }
 
-        if (oldX == newX && oldY == newY) {
-            me.gamestat.reset("moved");
+        // Check for movement
+        var newX = Math.round(this.pos.x / 32);
+        var newY = Math.round(this.pos.y / 32);
+
+        if (this.playerX == newX && this.playerY == newY) {
+            this.moved = false;
         } else {
-            me.gamestat.setValue("playerX", newX);
-            me.gamestat.setValue("playerY", newY);
-            me.gamestat.setValue("moved", 1);
+            this.playerX = newX;
+            this.playerY = newY;
+            this.moved = true;
 
             // Update stamina
             me.game.HUD.updateItemValue("stamina", -1);
@@ -173,7 +177,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 });
 
 // Create teleporter entity
-var TeleporterEntity = me.ObjectEntity.extend({
+var TeleporterEntity = me.CollectableEntity.extend({
     // Constructor
     init : function(x, y, settings) {
         // Call the constructor
@@ -186,13 +190,22 @@ var TeleporterEntity = me.ObjectEntity.extend({
     },
 
     update : function() {
-        if (me.gamestat.getItemValue("engineCollected") == 1) {
+        if (player.hasEngine) {
             this.setCurrentAnimation("on");
             this.parent(this);
             return true;
         }
         return false;
-    }    
+    },
+
+    onCollision : function() {
+        if (me.levelDirector.getCurrentLevelId() == "facility1") {
+            me.levelDirector.loadLevel("facility2");
+            me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF2"));
+        } else if (me.levelDirector.getCurrentLevelId() == "facility2") {
+            me.state.change(me.state.WIN);
+        }
+    }
 });
 
 // Create guard entity
@@ -233,7 +246,7 @@ var EnginePieceEntity = me.CollectableEntity.extend({
         me.game.HUD.updateItemValue("stamina", this.reward);
         this.collidable = false;
         me.game.remove(this);
-        me.gamestat.setValue("engineCollected", 1);
+        player.hasEngine = true;
     }
 });
 
@@ -251,9 +264,6 @@ var KeyEntity = me.CollectableEntity.extend({
         me.audio.play("chime-pickup-bonus", 0.3);
         this.collidable = false;
         me.game.remove(this);
-        me.gamestat.setValue("keyCollected", 1);
-
-    // do something when collected
     }
 });
 
@@ -265,7 +275,7 @@ var LockEntity = me.CollectableEntity.extend({
         // call the parent constructor
         this.parent(x, y, settings);
     },
-    
+
     update: function() {
         if (player.hasKey)
             me.game.remove(this);
