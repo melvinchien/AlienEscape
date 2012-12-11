@@ -16,6 +16,8 @@ var Water = me.CollectableEntity.extend({
         me.game.HUD.updateItemValue("stamina", this.reward);
         this.collidable = false;
         me.game.remove(this);
+                        me.audio.play("chime-pickup-bonus", 0.3);
+
     }
 });
 
@@ -33,6 +35,8 @@ var FreshSandwich = me.CollectableEntity.extend({
         me.game.HUD.updateItemValue("stamina", this.reward);
         this.collidable = false;
         me.game.remove(this);
+                        me.audio.play("chime-pickup-bonus", 0.3);
+
     }
 });
 
@@ -50,5 +54,7 @@ var RottenSandwich = me.CollectableEntity.extend({
         me.game.HUD.updateItemValue("stamina", this.reward);
         this.collidable = false;
         me.game.remove(this);
+                                me.audio.play("grunt", 0.3);
+
     }
 });

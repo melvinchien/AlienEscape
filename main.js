@@ -404,6 +404,16 @@ var g_resources = [
     type: "audio",
     src: "sounds/",
     channel : 4
+}, {
+    name: "grunt",
+    type: "audio",
+    src: "sounds/",
+    channel : 1
+}, {
+    name: "turret",
+    type: "audio",
+    src: "sounds/",
+    channel : 8
 }];
 
 

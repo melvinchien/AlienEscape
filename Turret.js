@@ -132,6 +132,8 @@ var LaserBeam = me.ObjectEntity.extend({
                 this.alive = true;
                 //this.collidable = true;
                 this.setCurrentAnimation(this.orientation);
+                  me.audio.play("turret", 0.1);
+
             }
             this.pTime = me.timer.getTime();
 
@@ -317,6 +319,8 @@ var PowerfulLaserBeam = me.ObjectEntity.extend({
         //this.alive = ture;
         this.collidable = true;
         this.setCurrentAnimation(this.orientation);
+         me.audio.play("turret", 0.1);
+
     },
 
     stop : function() {
