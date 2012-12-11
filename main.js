@@ -51,6 +51,12 @@ var g_resources = [
     src: "images/key.png"
 
 },
+{
+    name: "lock",
+    type: "image",
+    src: "images/lock.png"
+
+},
 
 
 
@@ -386,6 +392,7 @@ var jsApp = {
 
         me.entityPool.add("teleporter", TeleporterEntity);
         me.entityPool.add("KeyEntity", KeyEntity);
+        me.entityPool.add("LockEntity", LockEntity);
         me.entityPool.add("enginePiece", EnginePieceEntity);
 
 

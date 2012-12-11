@@ -259,6 +259,21 @@ var KeyEntity = me.CollectableEntity.extend({
     }
 });
 
+// Create key entity
+var LockEntity = me.CollectableEntity.extend({
+    // extending the init function is not mandatory
+    // unless you need to add some extra initialization
+    init : function(x, y, settings) {
+        // call the parent constructor
+        this.parent(x, y, settings);
+    },
+
+    onCollision : function() {
+		if (player.hasKey)
+			me.game.remove(this);
+    }
+});
+
 /* AUDIO ZONES */
 
 // Create HomeKeyDoor entity
