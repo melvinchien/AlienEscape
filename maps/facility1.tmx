@@ -67,10 +67,7 @@
  <objectgroup color="#ff00ff" name="Items" width="32" height="24">
   <object name="teleporter" x="416" y="512" width="64" height="64">
    <properties>
-    <property name="duration" value="250"/>
-    <property name="fade" value="#000000"/>
     <property name="image" value="teleporter_tiles"/>
-    <property name="nextlevel" value="facility2"/>
     <property name="spritewidth" value="64"/>
    </properties>
   </object>
@@ -191,6 +188,15 @@
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
     <property name="type" value="solid"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ffff00" name="LevelEntity" width="32" height="24">
+  <object name="me.LevelEntity" x="416" y="512" width="64" height="64">
+   <properties>
+    <property name="duration" value="250"/>
+    <property name="fade" value="#000000"/>
+    <property name="to" value="facility2"/>
    </properties>
   </object>
  </objectgroup>

@@ -4,15 +4,8 @@
 // Version 1.0
 // November 12, 2012
 
-player = null;
+var player = null;
 
-function gameOver() {
-
-    // my code is gone...
-    // didn't have much anayway...
-
-    me.state.pause();
-}
 
 // Create player entity
 var PlayerEntity = me.ObjectEntity.extend({
@@ -190,14 +183,6 @@ var TeleporterEntity = me.ObjectEntity.extend({
         this.addAnimation("off", [0]);
         this.addAnimation("on", [0, 1, 2, 3, 4, 5]);
         this.setCurrentAnimation("off");
-        
-        this.nextlevel = settings.to;
-        this.fade = settings.fade;
-        this.duration = settings.duration;
-        this.fading = false;
-
-        // a temp variable
-        this.gotolevel = settings.to;
     },
 
     update : function() {
@@ -206,37 +191,8 @@ var TeleporterEntity = me.ObjectEntity.extend({
             this.parent(this);
             return true;
         }
-    },
-    onFadeComplete : function() {
-        me.levelDirector.loadLevel(this.gotolevel);
-        me.game.viewport.fadeOut(this.fade, this.duration);
-    },
-
-    /**
-		 * go to the specified level
-		 * @protected
-		 */
-    goTo : function(level) {
-        this.gotolevel = level || this.nextlevel;
-        // load a level
-        //console.log("going to : ", to);
-        if (this.fade && this.duration) {
-            if (!this.fading) {
-                this.fading = true;
-                me.game.viewport.fadeIn(this.fade, this.duration,
-                    this.onFadeComplete.bind(this));
-            }
-        } else {
-            me.levelDirector.loadLevel(this.gotolevel);
-        }
-    },
-
-    /** @private */
-    onCollision : function() {
-        if (me.gamestat.getItemValue("engineCollected") == 1)
-            this.goTo();
-    }
-    
+        return false;
+    }    
 });
 
 // Create guard entity
