@@ -37,7 +37,7 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.addAnimation("right", [15, 18, 19, 18]);
         this.addAnimation("dead", [20]);
         this.setCurrentAnimation("idleDown");
-                me.input.bindKey(me.input.KEY.M, "music", true);
+        me.input.bindKey(me.input.KEY.M, "music", true);
 
 
         // Add footsteps
@@ -51,8 +51,8 @@ var PlayerEntity = me.ObjectEntity.extend({
     update : function() {
 
 
-		// music toggle
-    	if (me.input.isKeyPressed("music")) {
+        // music toggle
+        if (me.input.isKeyPressed("music")) {
             if (me.gamestat.getItemValue("music") == 1) {
                 me.audio.stopTrack();
                 me.gamestat.setValue("music", 0);
@@ -67,7 +67,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         if (me.input.isKeyPressed("left") && !this.disableMoveLeft) {
             this.setCurrentAnimation("left", "idleLeft");
-			fogVisible = true;
+            fogVisible = true;
             // Generates a footstep sound
             var footRand = 1 + Math.floor(Math.random() * 9);
             var myFootSound = "FOOT_" + this.nextFootVar + footRand;
@@ -86,7 +86,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Update velocity
             this.vel.x -= 32;
         } else if (me.input.isKeyPressed("right")) {
-        	fogVisible = true;
+            fogVisible = true;
             //enable player to move left again
             this.disableMoveLeft = false;
             this.setCurrentAnimation("right", "idleRight");
@@ -109,7 +109,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             // Update velocity
             this.vel.x += 32;
         } else if (me.input.isKeyPressed("up")) {
-        	fogVisible = true;
+            fogVisible = true;
             this.setCurrentAnimation("up", "idleUp");
 
             // Generates a footstep sound
@@ -218,13 +218,20 @@ var TeleporterEntity = me.CollectableEntity.extend({
     onCollision : function() {
         if (player.hasEngine)
             if (me.levelDirector.getCurrentLevelId() == "facility1") {
-                     me.audio.play("warp", 0.7);
+                me.audio.play("warp", 0.7);
                 me.levelDirector.loadLevel("facility2");
                 me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF2"));
                 me.audio.stop("roombg-teleporter");
                 me.audio.play("roombg-home",0.3,true);
                 me.gamestat.setValue("bg", 1);
             } else if (me.levelDirector.getCurrentLevelId() == "facility2") {
+                me.audio.play("warp", 0.7);
+                me.levelDirector.loadLevel("facility3");
+                me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF3"));
+                me.audio.stop("roombg-teleporter");
+                me.audio.play("roombg-home",0.3,true);
+                me.gamestat.setValue("bg", 1);
+            } else if (me.levelDirector.getCurrentLevelId() == "facility3") {
                 me.state.change(me.state.WIN);
             }
     }

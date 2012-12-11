@@ -524,6 +524,7 @@ var jsApp = {
         me.gamestat.add("bg");
         me.gamestat.add("staminaF1", 151);
         me.gamestat.add("staminaF2", 151);
+        me.gamestat.add("staminaF3", 151);
 
         // start the game
         me.state.change(me.state.MENU);
