@@ -548,6 +548,12 @@ var PlayScreen = me.ScreenObject.extend( {
     onDestroyEvent: function() {
         // remove the HUD
         me.game.disableHUD();
+                me.audio.stop("roombg-teleporter");
+        me.audio.stop("roombg-guard");
+        me.audio.stop("roombg-home");
+        me.audio.stop("roombg-key");
+        me.audio.stop("roombg-puzzle");
+        me.audio.stopTrack();
     }
 
 });
@@ -576,11 +582,6 @@ var TitleScreen = me.ScreenObject.extend( {
         // play something
         me.audio.playTrack("music-loop", 0.5);
         me.gamestat.setValue("music", 1);
-        me.audio.stop("roombg-teleporter");
-        me.audio.stop("roombg-guard");
-        me.audio.stop("roombg-home");
-        me.audio.stop("roombg-key");
-        me.audio.stop("roombg-puzzle");
     },
 
 
@@ -645,18 +646,14 @@ var GameOverScreen = me.ScreenObject.extend({
             // font to display the menu items
             this.font = new me.BitmapFont("font_scifly_green", 32);
             this.font.set("center");
-            me.audio.playTrack("music-tag", 0.7);
-            me.audio.stop("roombg-teleporter");
-            me.audio.stop("roombg-guard");
-            me.audio.stop("roombg-home");
-            me.audio.stop("roombg-key");
-            me.audio.stop("roombg-puzzle");
 
         }
 
         // enable the keyboard
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
+                    me.audio.playTrack("music-tag", 0.7);
+
 
     },
 
@@ -698,18 +695,14 @@ var WinScreen = me.ScreenObject.extend({
             // font to display the menu items
             this.font = new me.BitmapFont("font_scifly_green", 32);
             this.font.set("center");
-            me.audio.playTrack("music-win", 0.9);
-            me.audio.stop("roombg-teleporter");
-            me.audio.stop("roombg-guard");
-            me.audio.stop("roombg-home");
-            me.audio.stop("roombg-key");
-            me.audio.stop("roombg-puzzle");
+
 
         }
         
         // enable the keyboard
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
+            me.audio.playTrack("music-win", 0.9);
 
     },
 

@@ -9,7 +9,7 @@ var FogOfWar = me.InvisibleEntity.extend({
 
         for (x = 1; x < tileX - 1; x++)
             for (y = 1; y < tileY - 1; y++)
-             //   me.game.add(new Fog(x * 32, y * 32, me.loader.getImage("fow"), 32, 32), 9999999999999);
+                me.game.add(new Fog(x * 32, y * 32, me.loader.getImage("fow"), 32, 32), 9999999999999);
         me.game.sort();
     }
 });
