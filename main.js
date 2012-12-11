@@ -55,7 +55,7 @@ var g_resources = [
 
 
 
- {
+{
     name: "water",
     type: "image",
     src: "images/water.png"
@@ -100,18 +100,18 @@ var g_resources = [
     name: "fresh_sandwich",
     type: "image",
     src: "images/fresh_sandwich.png"
-    
+
 }, {
     name: "rotten_sandwich",
     type: "image",
     src: "images/rotten_sandwich.png"
-    
+
 },
 
 
 
 
- {
+{
     name: "music-loop",
     type: "audio",
     src: "sounds/",
@@ -333,11 +333,11 @@ var jsApp = {
     // Initialize the jsApp
 
     onload: function() {
-        
-        
-        me.debug.renderHitBox = true;
-        
-        
+
+
+        me.debug.renderHitBox = false;
+
+
         // Initialize the video
         if (!me.video.init("jsapp", 1024, 768, false, 1.0)) {
             alert("Sorry but your browser does not support html 5 canvas.");
@@ -362,7 +362,7 @@ var jsApp = {
     loaded: function () {
         // Set the "Menu" Screen Object
         me.state.set(me.state.MENU, new TitleScreen());
-        
+
         me.state.set(me.state.GAMEOVER, new GameOver());
 
         // Set the "Play/Ingame" Screen Object
@@ -373,7 +373,7 @@ var jsApp = {
 
         // Add entities in entity pool
         me.entityPool.add("player", PlayerEntity);
-        
+
         me.entityPool.add("NoviceGuard1-1", NoviceGuard);
         me.entityPool.add("NoviceGuard1-2", NoviceGuard);
         me.entityPool.add("ProGuard1-1", ProGuard);
@@ -383,7 +383,7 @@ var jsApp = {
         me.entityPool.add("Advanced_Turret1-1", AdvancedLaserTurret);
         me.entityPool.add("Advanced_Turret1-2", AdvancedLaserTurret);
         me.entityPool.add("Doctor", Doctor);
-        
+
         me.entityPool.add("teleporter", TeleporterEntity);
         me.entityPool.add("KeyEntity", KeyEntity);
         me.entityPool.add("enginePiece", EnginePieceEntity);
@@ -402,7 +402,7 @@ var jsApp = {
         me.entityPool.add("WaterSpawn1-1", Water);
         me.entityPool.add("FSandwichSpawn1-1", FreshSandwich);
         me.entityPool.add("RSandwichSpawn1-1", RottenSandwich);
-        
+
 
         // Enable the keyboard
         me.input.bindKey(me.input.KEY.A, "left", true);
@@ -452,7 +452,7 @@ var PlayScreen = me.ScreenObject.extend( {
 
         // make sure everyhting is in the right order
         me.game.sort();
-        
+
         // start the background noise for the starting room
         me.audio.play("roombg-home",0.6,true);
         me.gamestat.setValue("bg", 1);
@@ -489,7 +489,7 @@ var TitleScreen = me.ScreenObject.extend( {
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
 
         // play something
-        me.audio.playTrack("music-loop",0.5);
+        me.audio.playTrack("music-loop", 0.5);
         me.gamestat.setValue("music", 1);
     },
 
@@ -505,7 +505,7 @@ var TitleScreen = me.ScreenObject.extend( {
                 me.audio.stopTrack();
                 me.gamestat.setValue("music", 0);
             } else {
-                me.audio.playTrack("music-loop");
+                me.audio.playTrack("music-loop", 0.5);
                 me.gamestat.setValue("music", 1);
             }
         }
@@ -519,8 +519,7 @@ var TitleScreen = me.ScreenObject.extend( {
         var y = me.video.getHeight() / 2;
         this.font.draw(context, "PLAY - ENTER", x, y);
         this.font.draw(context, "MOVE - ARROW KEYS / WASD", x, y + 64);
-        this.font.draw(context, "M - TOGGLE MUSIC", x, y + 128);
-
+        this.font.draw(context, "TOGGLE BGM - M", x, y + 128);
     },
 
     onDestroyEvent: function() {
@@ -545,7 +544,7 @@ var TurnObject = me.HUD_Item.extend({
 
 
 var GameOver = me.ScreenObject.extend({
-	init: function() {
+    init: function() {
         this.parent(true);
         this.title = null;
         this.font = null;
