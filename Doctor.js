@@ -106,7 +106,7 @@ var Doctor = me.ObjectEntity.extend({
             {
 
                 if (this.curAni == 4) {
-                    me.audio.play("dr_move", 0.01);
+                    me.audio.play("dr_move", 0.05);
                 }
                 if (this.curAni <= 6)
                 {
