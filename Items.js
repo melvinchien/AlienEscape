@@ -7,8 +7,13 @@ var Water = me.CollectableEntity.extend({
         // updated this to fix out-of-bound values
         this.pos.x += randomInt(0, settings.width / 32 - 1) * 32;
         this.pos.y += randomInt(0, settings.height / 32 - 1)  * 32;
-
-        this.reward = 12;
+		
+		if (this.pos.x == 736)
+			this.pos.x += 32;
+		if (this.pos.y == 32)
+			this.pos.y += 32;
+			
+		this.reward = 12;
     },
 
     onCollision: function() {
@@ -24,10 +29,12 @@ var Water = me.CollectableEntity.extend({
 var FreshSandwich = me.CollectableEntity.extend({
     init: function(x, y, settings) {
         this.parent(x, y, settings);
-
         this.pos.x += randomInt(0, settings.width / 32) * 32;
         this.pos.y += randomInt(0, settings.height / 32) * 32;
-
+		if (this.pos.x == 544)
+			this.pos.x += 32;
+		if (this.pos.y == 480)
+			this.pos.y += 32;
         this.reward = 20;
     },
 
