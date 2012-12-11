@@ -1,4 +1,4 @@
-
+var fogVisible = true;
 
 
 var FogOfWar = me.InvisibleEntity.extend({
@@ -10,7 +10,18 @@ var FogOfWar = me.InvisibleEntity.extend({
             for (y = 1; y < tileY - 1; y++)
                 me.game.add(new Fog(x * 32, y * 32, me.loader.getImage("fow"), 32, 32), 9999999999999);
         me.game.sort();
+        me.input.bindKey(me.input.KEY.F, "fog", true);
         
+    },
+    
+    update : function() {
+        if (me.input.isKeyPressed("fog")) {
+            if (fogVisible) {
+                fogVisible = false;
+            } else {
+                fogVisible = true;
+            }
+        }
     }
 });
 
@@ -28,20 +39,12 @@ var Fog = me.AnimationSheet.extend({
         this.visible = true;
 
         this.isSolidTile = (me.game.collisionMap.getTile(x, y) == null) ? false : true;
-        me.input.bindKey(me.input.KEY.F, "fog", true);
+        
     },
 
     update : function() {
-        if (me.input.isKeyPressed("fog")) {
-            console.log("hello");
-            if (this.visible) {
-                this.visible = false;
-            } else {
-                this.visible = true;
-            }
-        }
         
-        if (this.visible) {
+        if (fogVisible) {
             
             var distX = (player.pos.x - this.pos.x) / 32;
             var distY = (player.pos.y - this.pos.y) / 32;

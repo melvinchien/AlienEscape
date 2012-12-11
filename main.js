@@ -549,7 +549,7 @@ var PlayScreen = me.ScreenObject.extend( {
     onDestroyEvent: function() {
         // remove the HUD
         me.game.disableHUD();
-                me.audio.stop("roombg-teleporter");
+        me.audio.stop("roombg-teleporter");
         me.audio.stop("roombg-guard");
         me.audio.stop("roombg-home");
         me.audio.stop("roombg-key");
@@ -612,6 +612,7 @@ var TitleScreen = me.ScreenObject.extend( {
         this.font.draw(context, "PLAY - ENTER", x, y);
         this.font.draw(context, "MOVE - ARROW KEYS / WASD", x, y + 64);
         this.font.draw(context, "TOGGLE BGM - M", x, y + 128);
+        this.font.draw(context, "TOGGLE FOG - F", x, y + 192);
     },
 
     onDestroyEvent: function() {
@@ -653,7 +654,7 @@ var GameOverScreen = me.ScreenObject.extend({
         // enable the keyboard
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
-                    me.audio.playTrack("music-tag", 0.7);
+        me.audio.playTrack("music-tag", 0.7);
 
 
     },
@@ -703,7 +704,7 @@ var WinScreen = me.ScreenObject.extend({
         // enable the keyboard
         me.input.bindKey(me.input.KEY.ENTER, "enter", true);
         me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
-            me.audio.playTrack("music-win", 0.9);
+        me.audio.playTrack("music-win", 0.9);
 
     },
 
