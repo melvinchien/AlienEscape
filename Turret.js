@@ -102,6 +102,7 @@ var LaserBeam = me.ObjectEntity.extend({
         if (this.alive && this.pos.x == player.pos.x && this.pos.y == player.pos.y)
         {
             //document.getElementById("debugInfo").innerHTML = "<font color=red>" + this.name + ": " + this.pos.x + " x " + this.pos.y + "<br>player: " + player.pos.x + " x " + player.pos.y + "</font><br>";
+            if (!player.isCurrentAnimation("dead")) { me.audio.play("grunt", 0.3); }
             player.setCurrentAnimation("dead");
             me.game.HUD.updateItemValue("stamina", -this.damage);
         //document.getElementById("debugInfo").innerHTML += this.name + " (" + this.GUID + ")<font color=red>laser</font><br>";
@@ -307,6 +308,7 @@ var PowerfulLaserBeam = me.ObjectEntity.extend({
         if (this.collidable && this.pos.x == player.pos.x && this.pos.y == player.pos.y)
         {
             //document.getElementById("debugInfo").innerHTML += this.name + "<br>";
+            if (!player.isCurrentAnimation("dead")) { me.audio.play("grunt", 0.3); }
             player.setCurrentAnimation("dead");
             me.game.HUD.updateItemValue("stamina", -this.damage);
         }

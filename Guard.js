@@ -429,6 +429,8 @@ var NoviceGuard = me.ObjectEntity.extend({
                 //player.flicker(2, function() {this.collidable = true;});
 
                 player.flicker(0);
+                me.audio.play("grunt", 0.3);
+
 
                 me.game.HUD.updateItemValue("stamina", -this.damage);
                 document.getElementById("debugInfo").innerHTML += "<font color=red>contact</font><br>";
@@ -638,6 +640,7 @@ var ProGuard = me.ObjectEntity.extend({
 
                 //player.flicker(2, function() {this.collidable = true;});
                 player.flicker(0);
+				 me.audio.play("grunt", 0.3);
 
                 me.game.HUD.updateItemValue("stamina", -this.damage);
                 document.getElementById("debugInfo").innerHTML += "<font color=red>contact</font><br>";
@@ -926,6 +929,7 @@ var EliteGuard = me.ObjectEntity.extend({
 
                 //player.flicker(2, function() {this.collidable = true;});
                 player.flicker(0);
+                me.audio.play("grunt", 0.3);
                 me.game.HUD.updateItemValue("stamina", -this.damage);
                 document.getElementById("debugInfo").innerHTML += "<font color=red>contact</font><br>";
             }

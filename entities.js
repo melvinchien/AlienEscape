@@ -164,6 +164,9 @@ var PlayerEntity = me.ObjectEntity.extend({
             // if we collide with an enemy
             if (res.obj.type == me.game.ENEMY_OBJECT) {
                 console.log("flicker");
+                if (this.flicker != 1) {
+                                me.audio.play("grunt", 0.3);
+                }
                 // Flicker if we touched an enemy
                 this.flicker(1);
             }
