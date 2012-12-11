@@ -106,13 +106,7 @@ var LaserBeam = me.ObjectEntity.extend({
         {
             //document.getElementById("debugInfo").innerHTML = "<font color=red>" + this.name + ": " + this.pos.x + " x " + this.pos.y + "<br>player: " + player.pos.x + " x " + player.pos.y + "</font><br>";
             player.setCurrentAnimation("dead");
-            var newStamina = me.game.HUD.getItemValue("stamina") - this.damage;
-            if (newStamina <= 0)
-            {
-                newStamina = 0;
-                me.state.change(me.state.GAMEOVER);
-            }
-            me.game.HUD.setItemValue("stamina", newStamina);
+            me.game.HUD.updateItemValue("stamina", -this.damage);
             //document.getElementById("debugInfo").innerHTML += this.name + " (" + this.GUID + ")<font color=red>laser</font><br>";
         }/*
         else
@@ -318,13 +312,7 @@ var PowerfulLaserBeam = me.ObjectEntity.extend({
         {
             //document.getElementById("debugInfo").innerHTML += this.name + "<br>";
             player.setCurrentAnimation("dead");
-            var newStamina = me.game.HUD.getItemValue("stamina") - this.damage;
-            if (newStamina <= 0)
-            {
-                newStamina = 0;
-                me.state.change(me.state.GAMEOVER);
-            }
-            me.game.HUD.setItemValue("stamina", newStamina);
+            me.game.HUD.updateItemValue("stamina", -this.damage);
         }
         
         this.parent(this);

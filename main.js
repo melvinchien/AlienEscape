@@ -391,14 +391,11 @@ var jsApp = {
         // Add entities in entity pool
         me.entityPool.add("player", PlayerEntity);
 
-        me.entityPool.add("NoviceGuard1-1", NoviceGuard);
-        me.entityPool.add("NoviceGuard1-2", NoviceGuard);
-        me.entityPool.add("ProGuard1-1", ProGuard);
-        me.entityPool.add("EliteGuard1-1", EliteGuard);
-        me.entityPool.add("Turret1-1", LaserTurret);
-        me.entityPool.add("Turret1-2", LaserTurret);
-        me.entityPool.add("Advanced_Turret1-1", AdvancedLaserTurret);
-        me.entityPool.add("Advanced_Turret1-2", AdvancedLaserTurret);
+        me.entityPool.add("NoviceGuard", NoviceGuard);
+        me.entityPool.add("ProGuard", ProGuard);
+        me.entityPool.add("EliteGuard", EliteGuard);
+        me.entityPool.add("Turret", LaserTurret);
+        me.entityPool.add("Advanced_Turret", AdvancedLaserTurret);
         me.entityPool.add("Doctor", Doctor);
 
         me.entityPool.add("teleporter", TeleporterEntity);
@@ -417,9 +414,9 @@ var jsApp = {
         me.entityPool.add("TeleportGuardDoor", TeleportGuardDoor);
 
 
-        me.entityPool.add("WaterSpawn1-1", Water);
-        me.entityPool.add("FSandwichSpawn1-1", FreshSandwich);
-        me.entityPool.add("RSandwichSpawn1-1", RottenSandwich);
+        me.entityPool.add("WaterSpawn", Water);
+        me.entityPool.add("FSandwichSpawn", FreshSandwich);
+        me.entityPool.add("RSandwichSpawn", RottenSandwich);
 
 
         // Enable the keyboard

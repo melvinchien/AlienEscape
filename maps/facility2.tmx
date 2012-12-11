@@ -50,19 +50,19 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="WaterSpawn2-1" x="640" y="32" width="352" height="160">
+  <object name="WaterSpawn" x="640" y="32" width="352" height="160">
    <properties>
     <property name="image" value="water"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="FSandwichSpawn2-1" x="224" y="32" width="384" height="160">
+  <object name="FSandwichSpawn" x="224" y="32" width="384" height="160">
    <properties>
     <property name="image" value="fresh_sandwich"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="RSandwichSpawn1-1" x="32" y="288" width="128" height="448">
+  <object name="RSandwichSpawn" x="32" y="288" width="128" height="448">
    <properties>
     <property name="image" value="rotten_sandwich"/>
     <property name="spritewidth" value="32"/>
@@ -79,25 +79,25 @@
   </object>
  </objectgroup>
  <objectgroup color="#ff0000" name="GuardEntities" width="32" height="24">
-  <object name="NoviceGuard2-1" x="736" y="224" width="256" height="96">
+  <object name="NoviceGuard" x="736" y="224" width="256" height="96">
    <properties>
     <property name="image" value="guard_novice_tiles"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="NoviceGuard2-2" x="32" y="32" width="96" height="128">
+  <object name="NoviceGuard" x="32" y="32" width="96" height="128">
    <properties>
     <property name="image" value="guard_novice_tiles"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="ProGuard2-1" x="544" y="224" width="160" height="224">
+  <object name="ProGuard" x="544" y="224" width="160" height="224">
    <properties>
     <property name="image" value="guard_pro_tiles"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="EliteGuard2-1" x="160" y="128" width="96" height="160">
+  <object name="EliteGuard" x="160" y="128" width="96" height="160">
    <properties>
     <property name="image" value="guard_elite_tiles"/>
     <property name="spritewidth" value="32"/>
@@ -113,7 +113,7 @@
     <property name="vision" value="7"/>
    </properties>
   </object>
-  <object name="NoviceGuard2-3" x="736" y="352" width="256" height="96">
+  <object name="NoviceGuard" x="736" y="352" width="256" height="96">
    <properties>
     <property name="image" value="guard_novice_tiles"/>
     <property name="spritewidth" value="32"/>
@@ -121,7 +121,7 @@
   </object>
  </objectgroup>
  <objectgroup color="#1101f0" name="TurretEntities" width="32" height="24">
-  <object name="Turret2-2" x="192" y="352" width="32" height="32">
+  <object name="Turret" x="192" y="352" width="32" height="32">
    <properties>
     <property name="delay" value="5000"/>
     <property name="direction" value="east"/>
@@ -132,7 +132,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Advanced_Turret2-1" x="64" y="192" width="32" height="32">
+  <object name="Advanced_Turret" x="64" y="192" width="32" height="32">
    <properties>
     <property name="direction" value="south"/>
     <property name="image" value="turret_advanced_tiles"/>
@@ -141,7 +141,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret2-1" x="224" y="320" width="32" height="32">
+  <object name="Turret" x="224" y="320" width="32" height="32">
    <properties>
     <property name="delay" value="5000"/>
     <property name="direction" value="east"/>
@@ -152,7 +152,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Advanced_Turret2-2" x="192" y="64" width="32" height="32">
+  <object name="Advanced_Turret" x="192" y="64" width="32" height="32">
    <properties>
     <property name="direction" value="east"/>
     <property name="image" value="turret_advanced_tiles"/>
@@ -161,7 +161,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret2-3" x="192" y="384" width="32" height="32">
+  <object name="Turret" x="192" y="384" width="32" height="32">
    <properties>
     <property name="delay" value="5000"/>
     <property name="direction" value="east"/>
@@ -172,7 +172,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret2-4" x="224" y="416" width="32" height="32">
+  <object name="Turret" x="224" y="416" width="32" height="32">
    <properties>
     <property name="delay" value="5000"/>
     <property name="direction" value="east"/>
@@ -183,7 +183,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret2-5" x="704" y="512" width="32" height="32">
+  <object name="Turret" x="704" y="512" width="32" height="32">
    <properties>
     <property name="direction" value="west"/>
     <property name="image" value="turret_tiles"/>
@@ -192,7 +192,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret2-6" x="832" y="512" width="32" height="32">
+  <object name="Turret" x="832" y="512" width="32" height="32">
    <properties>
     <property name="direction" value="south"/>
     <property name="image" value="turret_tiles"/>
@@ -201,7 +201,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret2-7" x="704" y="576" width="32" height="32">
+  <object name="Turret" x="704" y="576" width="32" height="32">
    <properties>
     <property name="direction" value="east"/>
     <property name="image" value="turret_tiles"/>
@@ -210,7 +210,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret2-8" x="766" y="639" width="32" height="32">
+  <object name="Turret" x="766" y="639" width="32" height="32">
    <properties>
     <property name="direction" value="west"/>
     <property name="image" value="turret_tiles"/>
@@ -228,7 +228,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret2-9" x="896" y="640" width="32" height="32">
+  <object name="Turret" x="896" y="640" width="32" height="32">
    <properties>
     <property name="direction" value="north"/>
     <property name="image" value="turret_tiles"/>

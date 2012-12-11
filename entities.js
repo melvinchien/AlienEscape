@@ -49,7 +49,10 @@ var PlayerEntity = me.ObjectEntity.extend({
     },
 
     // Update player position
-    update : function() {
+    update : function() {        
+        if (me.game.HUD.getItemValue("stamina") <= 0)
+            me.state.change(me.state.GAMEOVER);
+        
         if (me.input.isKeyPressed("left") && !this.disableMoveLeft) {
             this.setCurrentAnimation("left", "idleLeft");
 
@@ -155,8 +158,6 @@ var PlayerEntity = me.ObjectEntity.extend({
                 this.flicker(1);
             }
         }
-        if (me.game.HUD.getItemValue("stamina") <= 0)
-            me.state.change(me.state.GAMEOVER);
 
         if (oldX == newX && oldY == newY) {
             me.gamestat.reset("moved");

@@ -86,19 +86,19 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="WaterSpawn1-1" x="736" y="32" width="254" height="416">
+  <object name="WaterSpawn" x="736" y="32" width="254" height="416">
    <properties>
     <property name="image" value="water"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="FSandwichSpawn1-1" x="192" y="256" width="128" height="192">
+  <object name="FSandwichSpawn" x="192" y="256" width="128" height="192">
    <properties>
     <property name="image" value="fresh_sandwich"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="RSandwichSpawn1-1" x="544" y="480" width="160" height="160">
+  <object name="RSandwichSpawn" x="544" y="480" width="160" height="160">
    <properties>
     <property name="image" value="rotten_sandwich"/>
     <property name="spritewidth" value="32"/>
@@ -121,25 +121,25 @@
   </object>
  </objectgroup>
  <objectgroup color="#ff0000" name="GuardEntities" width="32" height="24">
-  <object name="NoviceGuard1-1" x="384" y="64" width="192" height="96">
+  <object name="NoviceGuard" x="384" y="64" width="192" height="96">
    <properties>
     <property name="image" value="guard_novice_tiles"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="NoviceGuard1-2" x="64" y="64" width="128" height="128">
+  <object name="NoviceGuard" x="64" y="64" width="128" height="128">
    <properties>
     <property name="image" value="guard_novice_tiles"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="ProGuard1-1" x="320" y="288" width="288" height="128">
+  <object name="ProGuard" x="320" y="288" width="288" height="128">
    <properties>
     <property name="image" value="guard_pro_tiles"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="EliteGuard1-1" x="32" y="256" width="128" height="128">
+  <object name="EliteGuard" x="32" y="256" width="128" height="128">
    <properties>
     <property name="image" value="guard_elite_tiles"/>
     <property name="spritewidth" value="32"/>
@@ -157,7 +157,7 @@
   </object>
  </objectgroup>
  <objectgroup color="#1101f0" name="TurretEntities" width="32" height="24">
-  <object name="Turret1-1" x="736" y="416" width="32" height="32">
+  <object name="Turret" x="736" y="416" width="32" height="32">
    <properties>
     <property name="direction" value="east"/>
     <property name="image" value="turret_tiles"/>
@@ -166,7 +166,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Advanced_Turret1-1" x="480" y="576" width="32" height="32">
+  <object name="Advanced_Turret" x="480" y="576" width="32" height="32">
    <properties>
     <property name="direction" value="west"/>
     <property name="image" value="turret_advanced_tiles"/>
@@ -175,7 +175,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Turret1-2" x="736" y="384" width="32" height="32">
+  <object name="Turret" x="736" y="384" width="32" height="32">
    <properties>
     <property name="direction" value="north"/>
     <property name="image" value="turret_tiles"/>
@@ -184,7 +184,7 @@
     <property name="type" value="solid"/>
    </properties>
   </object>
-  <object name="Advanced_Turret1-2" x="384" y="480" width="32" height="32">
+  <object name="Advanced_Turret" x="384" y="480" width="32" height="32">
    <properties>
     <property name="direction" value="south"/>
     <property name="image" value="turret_advanced_tiles"/>
