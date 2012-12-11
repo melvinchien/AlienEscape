@@ -19,7 +19,7 @@ var Water = me.ObjectEntity.extend({
 
     onCollision: function() {
         // do something when collected
-        me.game.HUD.setItemValue("stamina", me.game.HUD.getItemValue("stamina") + this.reward);
+        me.game.HUD.updateItemValue("stamina", this.reward);
         this.collidable = false;
         me.game.remove(this);
     }
@@ -45,7 +45,7 @@ var FreshSandwich = me.ObjectEntity.extend({
 
     onCollision: function() {
         // do something when collected
-        me.game.HUD.setItemValue("stamina", me.game.HUD.getItemValue("stamina") + this.reward);
+        me.game.HUD.updateItemValue("stamina", this.reward);
         this.collidable = false;
         me.game.remove(this);
     }
@@ -71,7 +71,7 @@ var RottenSandwich = me.ObjectEntity.extend({
 
     onCollision: function() {
         // do something when collected
-        me.game.HUD.setItemValue("stamina", me.game.HUD.getItemValue("stamina") + this.reward);
+        me.game.HUD.updateItemValue("stamina", this.reward);
         this.collidable = false;
         me.game.remove(this);
     }

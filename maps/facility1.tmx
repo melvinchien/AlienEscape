@@ -67,7 +67,10 @@
  <objectgroup color="#ff00ff" name="Items" width="32" height="24">
   <object name="teleporter" x="416" y="512" width="64" height="64">
    <properties>
+    <property name="duration" value="250"/>
+    <property name="fade" value="#000000"/>
     <property name="image" value="teleporter_tiles"/>
+    <property name="nextlevel" value="facility2"/>
     <property name="spritewidth" value="64"/>
    </properties>
   </object>
@@ -101,7 +104,7 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="LockEntity" x="704" y="129" width="29" height="31">
+  <object name="LockEntity" x="704" y="128" width="32" height="32">
    <properties>
     <property name="image" value="lock"/>
     <property name="spritewidth" value="32"/>

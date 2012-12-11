@@ -402,13 +402,6 @@ var NoviceGuard = me.ObjectEntity.extend({
                 //player.flicker(2, function() {this.collidable = true;});
                 
                 player.flicker(0);
-                var newStamina = me.game.HUD.getItemValue("stamina") - this.damage;
-                if (newStamina <= 0)
-                {
-                	
-                    newStamina = 0;
-                    me.state.change(me.state.GAMEOVER);
-                }
                 
                 me.game.HUD.setItemValue("stamina", newStamina);
                 document.getElementById("debugInfo").innerHTML += "<font color=red>contact</font><br>";

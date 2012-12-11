@@ -435,14 +435,9 @@ var jsApp = {
 
         // Store statistics and values (Default value is 0)
         me.gamestat.add("music");
-
         me.gamestat.add("bg");
-        //me.gamestat.add("staminaF1", 101);
-
         me.gamestat.add("staminaF1", 151);
-
-        me.gamestat.add("staminaF2", 101);
-        me.gamestat.add("staminaBonus", 15);
+        me.gamestat.add("staminaF2", 151);
         me.gamestat.add("engineCollected");
         me.gamestat.add("keyCollected");
         me.gamestat.add("moved");

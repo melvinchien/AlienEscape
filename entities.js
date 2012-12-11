@@ -155,6 +155,8 @@ var PlayerEntity = me.ObjectEntity.extend({
                 this.flicker(1);
             }
         }
+        if (me.game.HUD.getItemValue("stamina") <= 0)
+            me.state.change(me.state.GAMEOVER);
 
         if (oldX == newX && oldY == newY) {
             me.gamestat.reset("moved");
@@ -187,6 +189,14 @@ var TeleporterEntity = me.ObjectEntity.extend({
         this.addAnimation("off", [0]);
         this.addAnimation("on", [0, 1, 2, 3, 4, 5]);
         this.setCurrentAnimation("off");
+        
+        this.nextlevel = settings.to;
+        this.fade = settings.fade;
+        this.duration = settings.duration;
+        this.fading = false;
+
+        // a temp variable
+        this.gotolevel = settings.to;
     },
 
     update : function() {
@@ -195,7 +205,37 @@ var TeleporterEntity = me.ObjectEntity.extend({
             this.parent(this);
             return true;
         }
+    },
+    onFadeComplete : function() {
+        me.levelDirector.loadLevel(this.gotolevel);
+        me.game.viewport.fadeOut(this.fade, this.duration);
+    },
+
+    /**
+		 * go to the specified level
+		 * @protected
+		 */
+    goTo : function(level) {
+        this.gotolevel = level || this.nextlevel;
+        // load a level
+        //console.log("going to : ", to);
+        if (this.fade && this.duration) {
+            if (!this.fading) {
+                this.fading = true;
+                me.game.viewport.fadeIn(this.fade, this.duration,
+                    this.onFadeComplete.bind(this));
+            }
+        } else {
+            me.levelDirector.loadLevel(this.gotolevel);
+        }
+    },
+
+    /** @private */
+    onCollision : function() {
+        if (me.gamestat.getItemValue("engineCollected") == 1)
+            this.goTo();
     }
+    
 });
 
 // Create guard entity
@@ -228,11 +268,12 @@ var EnginePieceEntity = me.CollectableEntity.extend({
     init : function(x, y, settings) {
         // call the parent constructor
         this.parent(x, y, settings);
+        this.reward = 15;
     },
 
     onCollision : function() {
         me.audio.play("chime-pickup-bonus", 0.3);
-        me.game.HUD.updateItemValue("stamina", me.gamestat.getItemValue("staminaBonus"));
+        me.game.HUD.updateItemValue("stamina", this.reward);
         this.collidable = false;
         me.game.remove(this);
         me.gamestat.setValue("engineCollected", 1);
@@ -267,10 +308,15 @@ var LockEntity = me.CollectableEntity.extend({
         // call the parent constructor
         this.parent(x, y, settings);
     },
+    
+    update: function() {
+        if (player.hasKey)
+            me.game.remove(this);
+    },
 
     onCollision : function() {
-		if (player.hasKey)
-			me.game.remove(this);
+        if (player.hasKey)
+            me.game.remove(this);
     }
 });
 
