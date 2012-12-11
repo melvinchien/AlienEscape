@@ -43,7 +43,7 @@ var g_resources = [
 }, {
     name: "teleporter_tiles",
     type: "image",
-    src: "images/teleporter_tiles.png"
+    src: "images/teleporter.png"
 
 }, {
     name: "key",
@@ -60,17 +60,17 @@ var g_resources = [
     type: "image",
     src: "images/water.png"
 }, {
-    name: "novice_guard",
+    name: "guard_novice_tiles",
     type: "image",
-    src: "images/guard_tiles.png"
+    src: "images/guard_novice.png"
 }, {
-    name: "pro_guard",
+    name: "guard_pro_tiles",
     type: "image",
-    src: "images/guard2_tiles.png"
+    src: "images/guard_pro.png"
 }, {
-    name: "elite_guard",
+    name: "guard_elite_tiles",
     type: "image",
-    src: "images/guard3_tiles.png"
+    src: "images/guard_elite.png"
 }, {
     name: "doctor_tiles",
     type: "image",
@@ -84,13 +84,13 @@ var g_resources = [
     type: "image",
     src: "images/turret.png"
 }, {
-    name: "advanced_turret_tiles",
+    name: "turret_advanced_tiles",
     type: "image",
-    src: "images/advanced_turret.png"
+    src: "images/turret_advanced.png"
 }, {
     name: "powerful_laser_beam",
     type: "image",
-    src: "images/advanced_turret.png"
+    src: "images/turret_advanced.png"
 }, {
     name: "engine_piece",
     type: "image",

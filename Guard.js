@@ -262,7 +262,7 @@ var NoviceGuard = me.ObjectEntity.extend({
     // Constructor
     init: function(x, y, settings) {
         
-        settings.image = "novice_guard";
+        settings.image = "guard_novice_tiles";
         settings.spritewidth = 32;
         settings.spriteheight = 32;
         
@@ -486,7 +486,7 @@ var ProGuard = me.ObjectEntity.extend({
 // Constructor
     init: function(x, y, settings) {
         
-        settings.image = "pro_guard";
+        settings.image = "guard_pro_tiles";
         settings.spritewidth = 32;
         settings.spriteheight = 32;
         
@@ -773,7 +773,7 @@ var EliteGuard = me.ObjectEntity.extend({
 // Constructor
     init: function(x, y, settings) {
         
-        settings.image = "elite_guard";
+        settings.image = "guard_elite_tiles";
         settings.spritewidth = 32;
         settings.spriteheight = 32;
         

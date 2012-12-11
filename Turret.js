@@ -156,7 +156,7 @@ var LaserBeam = me.ObjectEntity.extend({
 var AdvancedLaserTurret = me.ObjectEntity.extend({
     init: function(x, y, settings) {
         
-        settings.image = "advanced_turret_tiles";
+        settings.image = "turret_advanced_tiles";
         settings.spritewidth = 32;
         settings.spriteheight = 32;
         
