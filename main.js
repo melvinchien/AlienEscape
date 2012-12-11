@@ -419,7 +419,7 @@ var jsApp = {
         me.gamestat.add("music");
 
         me.gamestat.add("bg");
-        me.gamestat.add("staminaF1", 101);
+        //me.gamestat.add("staminaF1", 101);
 
         me.gamestat.add("staminaF1", 151);
 
@@ -545,6 +545,53 @@ var TurnObject = me.HUD_Item.extend({
 
 
 var GameOver = me.ScreenObject.extend({
+	init: function() {
+        this.parent(true);
+        this.title = null;
+        this.font = null;
+    },
+
+    onResetEvent: function() {
+        if (this.title == null) {
+            this.title = me.loader.getImage("menu_main");
+            // font to display the menu items
+            this.font = new me.BitmapFont("font_scifly_green", 32);
+            this.font.set("center");
+        }
+
+        // enable the keyboard
+        me.input.bindKey(me.input.KEY.ENTER, "enter", true);
+        me.input.bindMouse(me.input.mouse.LEFT, me.input.KEY.ENTER);
+
+        // play something
+        me.audio.playTrack("music-temp",0.5);
+        me.gamestat.setValue("music", 1);
+    },
+
+
+    update: function() {
+        // enter pressed ?
+        if (me.input.isKeyPressed("enter")) {
+            me.state.change(me.state.PLAY);
+        }
+
+        return true;
+    },
+
+
+    draw: function(context) {
+        context.drawImage(this.title, 0, 0);
+        var x = me.video.getWidth() / 2;
+        var y = me.video.getHeight() / 2;
+        this.font.draw(context, "GAME OVER", x, y);
+        this.font.draw(context, "PRESS ENTER TO TRY AGAIN", x - 40, y + 64);
+
+    },
+
+    onDestroyEvent: function() {
+        me.input.unbindKey(me.input.KEY.ENTER);
+        me.input.unbindMouse(me.input.mouse.LEFT);
+    }
 });
 
 
