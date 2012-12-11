@@ -204,7 +204,7 @@ var TeleporterEntity = me.CollectableEntity.extend({
                 me.levelDirector.loadLevel("facility2");
                 me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF2"));
                 me.audio.stop("roombg-teleporter");
-                me.audio.play("roombg-home",0.5,true);
+                me.audio.play("roombg-home",0.3,true);
                 me.gamestat.setValue("bg", 1);
             } else if (me.levelDirector.getCurrentLevelId() == "facility2") {
                 me.state.change(me.state.WIN);
@@ -304,7 +304,7 @@ var HomeKeyDoor = me.InvisibleEntity.extend({
 
     onCollision : function() {
         if (me.gamestat.getItemValue("bg") != 1) {
-            me.audio.play("roombg-home", 0.45, "true");
+            me.audio.play("roombg-home", 0.3, "true");
             me.audio.stop("roombg-key");
             me.gamestat.setValue("bg", 1);
         }

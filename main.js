@@ -363,42 +363,47 @@ var g_resources = [
     name: "foot_1",
     type: "audio",
     src: "sounds/",
-    channel : 1
+    channel : 4
 }, {
     name: "foot_2",
     type: "audio",
     src: "sounds/",
-    channel : 1
+    channel : 4
 }, {
     name: "foot_3",
     type: "audio",
     src: "sounds/",
-    channel : 1
+    channel : 4
 }, {
     name: "foot_4",
     type: "audio",
     src: "sounds/",
-    channel : 1
+    channel : 4
 }, {
     name: "foot_5",
     type: "audio",
     src: "sounds/",
-    channel : 1
+    channel : 4
 }, {
     name: "foot_6",
     type: "audio",
     src: "sounds/",
-    channel : 1
+    channel : 4
 }, {
     name: "foot_7",
     type: "audio",
     src: "sounds/",
-    channel : 1
+    channel : 4
 }, {
     name: "foot_8",
     type: "audio",
     src: "sounds/",
-    channel : 1
+    channel : 4
+}, {
+    name: "dr_move",
+    type: "audio",
+    src: "sounds/",
+    channel : 4
 }];
 
 

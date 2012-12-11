@@ -104,6 +104,10 @@ var Doctor = me.ObjectEntity.extend({
         {
             if (me.timer.getTime() > this.pTime)
             {
+                
+                if (this.curAni == 4) {
+                       me.audio.play("dr_move", 0.1);     
+                }
                 if (this.curAni <= 6)
                 {
                     this.setCurrentAnimation(this.direction + "" + this.warpSeq + "" + this.curAni);
