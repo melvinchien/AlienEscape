@@ -508,6 +508,7 @@ var jsApp = {
         me.input.bindKey(me.input.KEY.W, "up", true);
         me.input.bindKey(me.input.KEY.UP, "up", true);
         me.input.bindKey(me.input.KEY.M, "music", true);
+        
 
         // Store statistics and values (Default value is 0)
         me.gamestat.add("music");
