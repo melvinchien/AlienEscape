@@ -26,6 +26,10 @@ var g_resources = [
     name: "font_scifly_green",
     type: "image",
     src: "images/font_scifly_green.png"
+},  {
+    name: "font_scifly_white",
+    type: "image",
+    src: "images/font_scifly_white.png"
 }, {
     name: "facility1_level_tiles",
     type: "image",
@@ -457,7 +461,7 @@ var PlayScreen = me.ScreenObject.extend( {
         me.game.addHUD(0, 736, 1024, 32);
 
         // add a new HUD item
-        me.game.HUD.addItem("stamina", new TurnObject(992, 0));
+        me.game.HUD.addItem("stamina", new StaminaObject(992, 0));
         me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF1"));
 
         // make sure everyhting is in the right order
@@ -541,10 +545,10 @@ var TitleScreen = me.ScreenObject.extend( {
 });
 
 
-var TurnObject = me.HUD_Item.extend({
+var StaminaObject = me.HUD_Item.extend({
     init: function(x, y) {
         this.parent(x, y);
-        this.font = new me.BitmapFont("font_scifly_grey", 32);
+        this.font = new me.BitmapFont("font_scifly_white", 32);
     },
 
 
