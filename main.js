@@ -522,6 +522,9 @@ var jsApp = {
         me.input.bindKey(me.input.KEY.W, "up", true);
         me.input.bindKey(me.input.KEY.UP, "up", true);
         me.input.bindKey(me.input.KEY.M, "music", true);
+        me.input.bindKey(me.input.KEY.NUM1, "changeF1", true);
+        me.input.bindKey(me.input.KEY.NUM2, "changeF2", true);
+        me.input.bindKey(me.input.KEY.NUM3, "changeF3", true);
         
 
         // Store statistics and values (Default value is 0)
@@ -627,7 +630,8 @@ var TitleScreen = me.ScreenObject.extend( {
         this.font.draw(context, "PLAY - ENTER", x, y);
         this.font.draw(context, "MOVE - ARROW KEYS / WASD", x, y + 64);
         this.font.draw(context, "TOGGLE BGM - M", x, y + 128);
-        this.font.draw(context, "TOGGLE FOG - F", x, y + 192);
+        this.font.draw(context, "HIDE FOG - F", x, y + 192);
+        this.font.draw(context, "CHANGE LEVEL - 1 / 2 / 3", x, y + 256);
     },
 
     onDestroyEvent: function() {

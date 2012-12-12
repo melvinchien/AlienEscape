@@ -321,7 +321,7 @@ var NoviceGuard = me.ObjectEntity.extend({
         this.pace = 6.4;
         this.moveXBy = 0;
         this.moveYBy = 0;
-        this.damage = (settings.damage == null) ? 7 : settings.damage;
+        this.damage = (settings.damage == null) ? 4 : settings.damage;
         this.vision = (settings.vision == null) ? 0 : settings.vision;
 
         // tile position within guard's zone
@@ -550,7 +550,7 @@ var ProGuard = me.ObjectEntity.extend({
         this.pace = 6.4;
         this.moveXBy = 0;
         this.moveYBy = 0;
-        this.damage = (settings.damage == null) ? 10 : settings.damage;
+        this.damage = (settings.damage == null) ? 7 : settings.damage;
         this.vision = (settings.vision == null) ? 3 : settings.vision;
 
         // tile position within guard's zone
@@ -840,7 +840,7 @@ var EliteGuard = me.ObjectEntity.extend({
         this.pace = 6.4;
         this.moveXBy = 0;
         this.moveYBy = 0;
-        this.damage = (settings.damage == null) ? 15 : settings.damage;
+        this.damage = (settings.damage == null) ? 10 : settings.damage;
         this.vision = (settings.vision == null) ? 5 : settings.vision;
 
         // tile position within guard's zone

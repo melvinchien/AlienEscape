@@ -63,7 +63,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         if (me.game.HUD.getItemValue("stamina") <= 0)
             me.state.change(me.state.GAMEOVER);
-
+        
         if (me.input.isKeyPressed("left") && !this.disableMoveLeft) {
             this.setCurrentAnimation("left", "idleLeft");
             // Generates a footstep sound
@@ -159,7 +159,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             if (res.obj.type == me.game.ENEMY_OBJECT) {
                 console.log("flicker");
                 if (this.flicker != 1) {
-                                me.audio.play("grunt", 0.3);
+                    me.audio.play("grunt", 0.3);
                 }
                 // Flicker if we touched an enemy
                 this.flicker(1);
@@ -214,6 +214,28 @@ var TeleporterEntity = me.CollectableEntity.extend({
     },
 
     update : function() {
+        if (me.input.isKeyPressed("changeF1")) {
+            me.audio.play("warp", 0.7);
+            me.levelDirector.loadLevel("facility1");
+            me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF1"));
+            me.audio.play("roombg-home",0.3,true);
+            me.gamestat.setValue("bg", 1);
+            return true;
+        } else if (me.input.isKeyPressed("changeF2")) {
+            me.audio.play("warp", 0.7);
+            me.levelDirector.loadLevel("facility2");
+            me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF2"));
+            me.audio.play("roombg-home",0.3,true);
+            me.gamestat.setValue("bg", 1);
+            return true;
+        } else if (me.input.isKeyPressed("changeF3")) {
+            me.audio.play("warp", 0.7);
+            me.levelDirector.loadLevel("facility3");
+            me.game.HUD.setItemValue("stamina", me.gamestat.getItemValue("staminaF3"));
+            me.audio.play("roombg-home",0.3,true);
+            me.gamestat.setValue("bg", 1);
+            return true;
+        }
         if (player.hasEngine) {
             this.setCurrentAnimation("on");
             this.parent(this);
@@ -243,6 +265,8 @@ var TeleporterEntity = me.CollectableEntity.extend({
             }
     }
 });
+
+
 
 // Create guard entity
 var GuardEntity = me.ObjectEntity.extend({

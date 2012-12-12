@@ -87,6 +87,7 @@ var Doctor = me.ObjectEntity.extend({
         this.warpSeq = 2;   // 0: initiating teleport - disappear, 1: teleported - appear, 2: next teleport coord determination, 3: idling
         this.targetX = x;
         this.targetY = y;
+        this.damage = 15;
 
         this.temp = 0;
     },
@@ -96,7 +97,7 @@ var Doctor = me.ObjectEntity.extend({
         if (this.pos.x == player.pos.x && this.pos.y == player.pos.y)
         {
             player.setCurrentAnimation("dead");
-            me.state.change(me.state.GAMEOVER);
+            me.game.HUD.updateItemValue("stamina", -this.damage);
         }
 
 
