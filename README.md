@@ -2,12 +2,23 @@
 ### © 2012 Team R for CS 113 at University of California, Irvine.
 ##### Melvin Chien, Ki Lee, Ank Nguyen, Stephen Swift
 
-### Current Version: 2.0 Alpha
+### Current Version: 4.0 Release
 
 - - -
 
 ### Implemented Features
-1. Nothing!
+1. Turn based gameplay
+* Fog of war
+* Three facilities
+* Four enemy guards
+	* Novice
+	* Pro
+	* Elite
+	* Doctor
+* Two turrets
+* Various pickups
+* Library of sounds
+* Different sound for each zone and level
 
 ### Changelog
 #### Version 2.0 Novemeber XX, 2012

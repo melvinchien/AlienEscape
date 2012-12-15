@@ -1,8 +1,7 @@
 // Alien Escape
 // Melvin Chien, Ki Lee, Ank Nguyen, Stephen Swift
 // CS 113 / INF 125, Professor Dan Frost
-// Version 1.0
-// November 12, 2012
+// December 11, 2012
 
 var player = null;
 
